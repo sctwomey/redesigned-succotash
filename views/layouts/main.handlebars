@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/jass.css">
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/jass.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
     <script src="../public/js/script.js" defer></script>
-    
+
     <title>Document</title>
 </head>
+
 <body>
-      <header>
-    <h1>Welcome to the Four Seasons Museum</h1>
-  </header>
-  <nav>
-    <a href="/">Home</a>
-  </nav>
-  <main>
-    <aside>
-      <h2>Enjoy the galleries!</h2>
-    </aside>
-    <div class="gallery">
-      {{{body}}}
-    </div>
-  </main>
-    
+    <header>
+        <p id="logo">Book-A-Zon</p>
+        <input type="text" name="Search" id="searchinput" placeholder="Search">
+        <div id="btnContainer">
+            <button id="cart"><a href="cart">Cart</a></button>
+            <button id="login"><a href="Login">Login</a></button>
+        </div>
+    </header>
+
+    <main>
+        <aside class="filters">
+            {{{filters}}}
+        </aside>
+        <div class="body">
+            {{{body}}}
+        </div>
+    </main>
 </body>
+
 </html>
