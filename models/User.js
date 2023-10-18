@@ -34,6 +34,10 @@ User.init(
         user_zip: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        user_phone: {
+            type: DataType.INTEGER,
+            allowNull: true
         }
     },
     {

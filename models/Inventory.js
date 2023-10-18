@@ -40,7 +40,7 @@ Inventory.init(
             allowNull: true
         },
         book_price: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         book_inventory: {
