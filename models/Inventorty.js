@@ -44,7 +44,7 @@ Inventory.init(
             allowNull: false
         },
         book_inventory: {
-            type: DataTypes.INVENTORY,
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     },
