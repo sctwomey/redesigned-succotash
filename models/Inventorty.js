@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Book extends Model { }
+class Inventory extends Model { }
 
-Book.init(
+Inventory.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -27,6 +27,10 @@ Book.init(
             type: DataTypes.TEXT,
             allowNull: true
         },
+        book_price: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         book_isbn: {
             type: DataTypes.STRING,
             allowNull: true
@@ -34,6 +38,14 @@ Book.init(
         book_genre: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        book_price: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        book_inventory: {
+            type: DataTypes.INVENTORY,
+            allowNull: false
         }
     },
     {
@@ -44,4 +56,4 @@ Book.init(
     }
 );
 
-module.exports = Book;
+module.exports = Inventory;
