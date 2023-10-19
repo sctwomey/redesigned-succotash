@@ -91,7 +91,7 @@ main {
 }
 
 #btnContainer {
-  flex: 0 1 10%;
+  flex: 0 1 25%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -288,7 +288,6 @@ background-color: #ffffff4b;
 padding: .5rem;
 background-color:#ffffff77 ;
 }
-
 
 #loginForm {
     flex: 0 1 30vw;

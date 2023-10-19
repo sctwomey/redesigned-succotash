@@ -12,7 +12,12 @@
 
 ## Description
 
+To start run
+"node server.js" 
+dont run nodemon this will create multiple port errors
 
+To restart 
+"control + c" //end server
 
 ## Technologies
 
