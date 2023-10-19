@@ -5,23 +5,25 @@ const withAuth = require("../utils/auth")
 // GET user homepage
 router.get('/', async (req, res) => {
   try {
-    const dbFavoriteData = await Favorite.findAll({
-      include: [
-        {
-          model: Wishlist,
-          attributes: ['title', 'publisher', 'genre', 'price'],
-        },
-      ],
-    });
+    // const dbFavoriteData = await Favorite.findAll({
+    //   include: [
+    //     {
+    //       model: Wishlist,
+    //       attributes: ['title', 'publisher', 'genre', 'price'],
+    //     },
+    //   ],
+    // });
 
-    const favoriteBooks = dbFavoriteData.map((favorite) =>
-      favorite.get({ plain: true })
-    );
+    // const favoriteBooks = dbFavoriteData.map((favorite) =>
+    //   favorite.get({ plain: true })
+    // );
 
-    res.render('userHomepage', {
-      favoriteBooks,
-      loggedIn: req.session.loggedIn,
-    });
+    // res.render('userHomepage', {
+    //   favoriteBooks,
+    //   loggedIn: req.session.loggedIn,
+    // });
+
+    res.render('book')
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -53,8 +55,8 @@ router.get('/author/:id', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-});
-
+})
+  
 // GET all books by an author
 // Use the custom middleware before allowing the user to access the book
 router.get('/book/:author', withAuth, async (req, res) => {
