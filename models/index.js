@@ -3,9 +3,10 @@ const Book = require('./Book');
 const Favorite = require('./Favorite');
 const Wishlist = require('./Wishlist');
 const Purchase = require('./Purchase');
-const UserFavorite = require('./UserPurchase');
+const UserFavorite = require('./UserFavorite');
+const UserWishlist = require('./UserWishlist');
 const UserPurchase = require('./UserPurchase');
-const UserWishlist = require('./UserPurchase');
+
 
 
 User.hasMany(Book, {
@@ -54,6 +55,14 @@ Wishlist.belongsToMany(User, {
 
 User.belongsToMany(Wishlist, {
   through: UserWishlist
+});
+
+Purchase.belongsToMany(User, {
+  through: UserPurchase
+});
+
+User.belongsToMany(Purchase, {
+  through: UserPurchase
 });
 
 module.exports = { User, Book, Favorite, Wishlist, Purchase, UserFavorite, UserPurchase, UserWishlist };
