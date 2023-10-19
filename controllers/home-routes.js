@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Book, User, Inventory } = require('../models');
+const withAuth = require("../utils/auth")
 
 // GET all books for homepage
 router.get('/', async (req, res) => {
@@ -21,6 +22,7 @@ router.get('/', async (req, res) => {
       books,
       loggedIn: req.session.loggedIn,
     });
+    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
