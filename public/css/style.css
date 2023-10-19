@@ -288,3 +288,72 @@ background-color: #ffffff4b;
 padding: .5rem;
 background-color:#ffffff77 ;
 }
+
+
+#loginForm {
+    flex: 0 1 30vw;
+    background-color: #99999977;
+    height: 60vh;
+    margin: 5rem;
+    flex-direction: column;
+    display: flex;
+    background-color: #ffffff77;
+    backdrop-filter: blur(0.5rem);
+    justify-content: space-evenly;
+align-content: center;
+}
+
+#loginForm>p{
+    align-self: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+#registerForm{
+    flex: 0 1 30vw;
+    background-color: #99999977;
+    height: 60vh;
+    margin: 5rem;
+    flex-direction: column;
+    display: flex;
+    background-color: #ffffff77;
+    backdrop-filter: blur(0.5rem);
+    justify-content: space-evenly;
+align-content: center;
+}
+
+#registerForm>p{
+    align-self: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+.loginReg{
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-content: center;
+margin-top: 8vh;
+}
+
+.loginInput {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.loginInput>input{
+    margin:.2rem;
+}
+
+.regInput {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.regInput>input {
+    margin:.2rem;
+}
