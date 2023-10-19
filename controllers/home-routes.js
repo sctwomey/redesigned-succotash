@@ -5,12 +5,12 @@ const withAuth = require("../utils/auth")
 // GET user homepage
 router.get('/', async (req, res) => {
 
-    // if (req.session.loggedIn) {
+  // if (req.session.loggedIn) {
   //   res.redirect('/');
   //   return;
   // }
 
-  
+
   try {
     const dbFavoriteData = await Favorite.findAll({
       include: [
@@ -60,8 +60,8 @@ router.get('/author/:id', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-  )
-  
+});
+
 // GET all books by an author
 // Use the custom middleware before allowing the user to access the book
 router.get('/book/:author', withAuth, async (req, res) => {
@@ -113,7 +113,7 @@ router.get('/login', (req, res) => {
 
 
 router.get('/signup', (req, res) => {
-  
+
   res.render('signup');
 });
 
