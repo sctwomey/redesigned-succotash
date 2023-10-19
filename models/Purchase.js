@@ -35,6 +35,10 @@ Purchase.init(
             type: DataTypes.STRING,
             allowNull: true
         },
+        series: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         price: {
             type: DataTypes.INTEGER,
             allowNull: false
