@@ -1,16 +1,9 @@
 const router = require('express').Router();
-const { Book } = require('../models');
+const { Book, Favorite } = require('../models');
 const withAuth = require("../utils/auth")
 
 // GET user homepage
 router.get('/', async (req, res) => {
-
-  // if (req.session.loggedIn) {
-  //   res.redirect('/');
-  //   return;
-  // }
-
-
   try {
     const dbFavoriteData = await Favorite.findAll({
       include: [
@@ -92,21 +85,19 @@ router.get('/book/:genre', withAuth, async (req, res) => {
 
 // GET all books in a series
 // Use the custom middleware before allowing the user to access the book
-router.get('/books/:series', withAuth, async (req, res) => {
+router.get('/book/:series', withAuth, async (req, res) => {
   try {
     const dbSeriesData = await Book.findAll(req.params.series);
 
     const bookSeries = dbSeriesData.get({ plain: true });
-    res.render('book', { bookSeries, loggedIn: req.session.loggedIn });
+    res.render('series', { bookSeries, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-
 router.get('/login', (req, res) => {
-
 
   res.render('login');
 });
