@@ -91,7 +91,7 @@ main {
 }
 
 #btnContainer {
-  flex: 0 1 10%;
+  flex: 0 1 25%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -287,4 +287,23 @@ background-color: #ffffff4b;
 .filtersContainer>button {
 padding: .5rem;
 background-color:#ffffff77 ;
+}
+#signupWrapper, .wrapper{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+#signupForm, .form{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  color: white;
+  gap: 10px;;
+  max-width: 600px;
+}
+#signupForm input{
+  padding: 20px;
+}
+#signupForm input[type="submit"]{
+  max-width: 100px;
 }

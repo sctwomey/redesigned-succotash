@@ -3,11 +3,18 @@ const { User } = require('../../models');
 
 // CREATE new user
 router.post('/', async (req, res) => {
+  console.log("i am getting data", req.body)
   try {
     const dbUserData = await User.create({
-      username: req.body.username,
+      //username: req.body.username,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.password,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip,
+      address: req.body.address
     });
 
     req.session.save(() => {
@@ -37,7 +44,12 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await dbUserData.checkPassword(req.body.password);
+    //const validPassword = await dbUserData.checkPassword(req.body.password);
+    let validPassword = false;
+
+    if(req.body.password === dbUserData.password){
+      validPassword = true
+    }
 
     if (!validPassword) {
       res
@@ -52,6 +64,8 @@ router.post('/login', async (req, res) => {
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
+
+        
     });
   } catch (err) {
     console.log(err);
