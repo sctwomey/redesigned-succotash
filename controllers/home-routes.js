@@ -4,6 +4,13 @@ const withAuth = require("../utils/auth")
 
 // GET all books for homepage
 router.get('/', async (req, res) => {
+
+    // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+
+  
   try {
     const dbBooksData = await Book.findAll();
 
@@ -35,12 +42,12 @@ router.get('/book/:id', withAuth, async (req, res) => {
   }
 });
 
-router.get('/author/:id', withAuth, async (req, res) => {
+router.get('/author/:id', async (req, res) => {
   try {
-    const dbAuthorData = await Author.findByPk(req.params.id);
+    // const dbAuthorData = await Author.findByPk(req.params.id);
 
-    const author = dbAuthorData.get({ plain: true });
-    res.render('author', { author, loggedIn: req.session.loggedIn });
+    // const author = dbAuthorData.get({ plain: true });
+    res.render('author', { loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -48,12 +55,16 @@ router.get('/author/:id', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
+
 
   res.render('login');
 });
+
+
+router.get('/signup', (req, res) => {
+  
+  res.render('signup');
+});
+
 
 module.exports = router;
