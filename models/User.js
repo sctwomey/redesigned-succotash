@@ -19,23 +19,23 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        user_address: {
+        address: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        user_city: {
+        city: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        user_state: {
+        state: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        user_zip: {
+        zip: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        user_phone: {
+        phone: {
             type: DataType.INTEGER,
             allowNull: true
         }

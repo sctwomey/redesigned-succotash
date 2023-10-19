@@ -27,13 +27,25 @@ Book.init(
             type: DataTypes.TEXT,
             allowNull: true
         },
-        book_isbn: {
+        isbn: {
             type: DataTypes.STRING,
             allowNull: true
         },
-        book_genre: {
+        genre: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        price: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        count: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        condition: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     },
     {

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, User, Inventory } = require('../models');
+const { Book, User } = require('../models');
 
 // GET all books for homepage
 router.get('/', async (req, res) => {
@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
     const dbBooksData = await Book.findAll({
       include: [
         {
-          model: Inventory,
-          attributes: ['filename', 'description', 'book_price', 'book_inventory'],
+          model: User,
+          attributes: ['first_name', 'last_name', 'city', 'state'],
         },
       ],
     });
