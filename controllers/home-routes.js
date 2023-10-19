@@ -45,7 +45,7 @@ router.get('/book/:id', withAuth, async (req, res) => {
 // Use the custom middleware before allowing the user to access the book
 router.get('/book/:author', withAuth, async (req, res) => {
   try {
-    const dbAuthorData = await Book.findByPk(req.params.author);
+    const dbAuthorData = await Book.findAll(req.params.author);
 
     const bookAuthor = dbAuthorData.get({ plain: true });
     res.render('author', { bookAuthor, loggedIn: req.session.loggedIn });
@@ -59,7 +59,7 @@ router.get('/book/:author', withAuth, async (req, res) => {
 // Use the custom middleware before allowing the user to access the book
 router.get('/book/:genre', withAuth, async (req, res) => {
   try {
-    const dbGenreData = await Book.findByPk(req.params.genre);
+    const dbGenreData = await Book.findAll(req.params.genre);
 
     const bookGenre = dbGenreData.get({ plain: true });
     res.render('genre', { bookGenre, loggedIn: req.session.loggedIn });
@@ -73,7 +73,7 @@ router.get('/book/:genre', withAuth, async (req, res) => {
 // Use the custom middleware before allowing the user to access the book
 router.get('/books/:series', withAuth, async (req, res) => {
   try {
-    const dbSeriesData = await Book.findByPk(req.params.series);
+    const dbSeriesData = await Book.findAll(req.params.series);
 
     const bookSeries = dbSeriesData.get({ plain: true });
     res.render('book', { bookSeries, loggedIn: req.session.loggedIn });
