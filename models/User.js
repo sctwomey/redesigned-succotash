@@ -36,7 +36,7 @@ User.init(
             allowNull: false
         },
         phone: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: true
         }
     },

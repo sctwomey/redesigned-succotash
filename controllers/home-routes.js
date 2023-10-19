@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Book } = require('../models');
+const withAuth = require("../utils/auth")
 
 // GET all books for homepage
 router.get('/', async (req, res) => {
@@ -28,6 +29,18 @@ router.get('/book/:id', withAuth, async (req, res) => {
 
     const book = dbBookData.get({ plain: true });
     res.render('book', { book, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/author/:id', withAuth, async (req, res) => {
+  try {
+    const dbAuthorData = await Author.findByPk(req.params.id);
+
+    const author = dbAuthorData.get({ plain: true });
+    res.render('author', { author, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
