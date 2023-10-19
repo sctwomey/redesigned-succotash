@@ -11,7 +11,7 @@ Favorite.init(
             primaryKey: true,
             autoIncrement: true
         },
-        book_name: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
