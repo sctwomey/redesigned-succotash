@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Book extends Model { }
+class User extends Model { }
 
-Book.init(
+User.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,60 +11,41 @@ Book.init(
             primaryKey: true,
             autoIncrement: true
         },
-        title: {
+        first_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        author: {
+        last_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        publisher: {
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        city: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        description: {
-            type: DataTypes.TEXT,
-            allowNull: true
-        },
-        isbn_10: {
+        state: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         },
-        genre: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        series: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        price: {
+        zip: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        quantity: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        condition_new: {
-            type: DataTypes.BOOLEAN,
+        phone: {
+            type: DataType.INTEGER,
             allowNull: true
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
+        }
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'book'
+        modelName: 'userPurchase'
     }
 );
 
-module.exports = Book;
+module.exports = User;

@@ -43,7 +43,7 @@ Purchase.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        count: {
+        quantity: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
