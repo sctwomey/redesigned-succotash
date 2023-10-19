@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Wishlist,
-          attributes: ['title', 'author', 'genre', 'condition_new', 'price'],
+          attributes: ['title', 'publisher', 'genre', 'price'],
         },
       ],
     });
