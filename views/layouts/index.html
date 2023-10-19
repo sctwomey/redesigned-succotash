@@ -13,93 +13,64 @@
 
 <body>
     <header>
+
         <p id="logo">Scribble & Prose</p>
         <input type="text" name="Search" id="searchinput" placeholder="Search">
         <div id="btnContainer">
             <button id="cart"><a href="cart">Cart</a></button>
-            <button id="login"><a href="Login">Login</a></button>
+            <button id="login"><a href="Login">Logout</a></button>
+
+
         </div>
+
     </header>
 
     <main>
-        <aside class="filters">
-            {{{filters}}}
+        <aside class="filtersContainer">
+
+            <div class="filters show">
+            
+            <input type="text" id="authorSearch" placeholder="place holder for Author">
+            <input type="text" id="priceSearch" placeholder="place holder for Price">
+            <input type="text" id="seriesSearch" placeholder="place holder for series">
+            </div>
+            <button> <i id="menuToggle" class="arrowLeft"></i></button>
         </aside>
+
         <div class="body">
 
-            <div class="card">
-
-                <div class="divAsideL">
-                    <div class="img"></div>
-                    <button class="author">Author</button>
-                    <button class="Publisher">Publisher</button>
-                    <button class="Genre">Genre</button>
+            <div class="cardDeckSearch">
+                <button id="booksBack"><i class="arrowLeft"></i></button>
+                <div class="cardDeck">
+                    <div class="bookCard"></div>
+                    <div class="bookCard"></div>
+                    <div class="bookCard"></div>
+                    <div class="bookCard"></div>
                 </div>
-
-                <div class="divCenter">
-                    <div class="bookName">Harry Potter and the Half Blood Prince</div>
-                    <div class="bookDescription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
-                        quasi dicta. Dignissimos reprehenderit hic, quisquam error enim voluptatibus similique earum
-                        beatae tempora laborum, vel officiis? Deserunt hic fugiat ut, velit incidunt accusantium qui
-                        beatae ad consequatur perspiciatis tempora eveniet reiciendis quidem. Iusto, dolore! Earum
-                        quibusdam soluta quam aliquam consequatur obcaecati.</div>
-                </div>
-
-                <div class="divAsideR">
-                    <div class="inventory">Qty: 5 in stock</div>
-                    <div class="price">$6.99</div>
-                    <button class="Details">Details</button>
-                    <button class="addToCart">Add To Cart</button>
-                    <button class="Favorite">Favorite</button>
-                </div>
+                <button id="booksNext"><i class="arrowRight"></i></button>
             </div>
 
-            <div class="review">
-                <div class="reviewPosts"></div>
-                <input type="text" name="postAReview" id="reviewPost" placeholder="Write a Review">
+             <div class="cardDeckSearch">
+                <button id="booksBack"><i class="arrowLeft"></i></button>
+                <div class="cardDeck">
+                    <div class="bookCard"></div>
+                    <div class="bookCard"></div>
+                    <div class="bookCard"></div>
+                    <div class="bookCard"></div>
+                </div>
+                <button id="booksNext"><i class="arrowRight"></i></button>
             </div>
 
-        </div>
-        <div class="related">
-
-            <div class="relatedHeader">Related Books</div>
-
-            <div class="relatedSearch">
-                <div class="relatedCard">
-                    <div class="cardImg"></div>
-                    <div class="cardName"></div>
-                    <button>more info</button>
+             <div class="cardDeckSearch">
+                <button id="booksBack"><i class="arrowLeft"></i></button>
+                <div class="cardDeck">
+                    <div class="bookCard"></div>
+                    <div class="bookCard"></div>
+                    <div class="bookCard"></div>
+                    <div class="bookCard"></div>
                 </div>
-
-                <div class="relatedCard">
-                    <div class="cardImg"></div>
-                    <div class="cardName"></div>
-                    <button>more info</button>
-                </div>
-
-                <div class="relatedCard">
-                    <div class="cardImg"></div>
-                    <div class="cardName"></div>
-                    <button>more info</button>
-                </div>
-
-                <div class="relatedCard">
-                    <div class="cardImg"></div>
-                    <div class="cardName"></div>
-                    <button>more info</button>
-                </div>
-
-                <div class="relatedCard">
-                    <div class="cardImg"></div>
-                    <div class="cardName"></div>
-                    <button>more info</button>
-                </div>
+                <button id="booksNext"><i class="arrowRight"></i></button>
             </div>
-        </div>
-
-
-
-
 
     </main>
 </body>

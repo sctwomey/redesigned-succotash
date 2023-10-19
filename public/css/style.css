@@ -11,12 +11,12 @@ header {
   /* background-color: rgba(129, 136, 150, 0.664); */
   justify-content: space-between;
   align-content: center;
-  box-shadow: 0 1px 5px 1px #999;
+  /* box-shadow: 0 1px 5px 1px #999; */
   z-index: 2;
   position: fixed;
   top: 0;
   background-color: #ffffff77;
-backdrop-filter: blur(.5rem);
+  backdrop-filter: blur(0.5rem);
 }
 
 body {
@@ -43,15 +43,51 @@ main {
   flex: 1 1 15vw;
   background-color: #99999977;
   height: 92vh;
-  margin-top: 8vh;
+  /* margin-top: 8vh; */
   background-color: #ffffff77;
   backdrop-filter: blur(0.5rem);
+  flex-direction: column;
+}
+
+.filters > input {
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.arrowRight {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.arrowLeft {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
 }
 
 .body {
-  flex: 1 1 75vw;
+  flex: 1 1 85vw;
   margin-top: 8vh;
   height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 #btnContainer {
@@ -96,7 +132,7 @@ main {
   justify-content: space-around;
   align-content: center;
   flex-direction: column;
-  flex: 0 1 20vw;
+  flex: 0 1 40vw;
 }
 
 .bookName {
@@ -122,13 +158,14 @@ main {
 .card {
   display: flex;
   flex-direction: row;
-  width: 70vw;
+  width: 80vw;
   height: 70vh;
   justify-content: space-evenly;
   background-color: #ffffff77;
   backdrop-filter: blur(0.5rem);
   font-weight: 500;
   margin: 1rem;
+  align-self: center;
 }
 
 .buttons {
@@ -182,17 +219,72 @@ main {
   height: 18vh;
   display: flex;
   flex-direction: row;
-  width: 70vw;
+  width: 80vw;
   justify-content: space-evenly;
   background-color: #ffffff77;
   backdrop-filter: blur(0.5rem);
   font-weight: 500;
   margin: 1rem;
+  align-self: center;
 }
 
 #reviewPost {
-    width: 90%;
-    height:3vh;
-    align-self: center;
-    
+  width: 90%;
+  height: 3vh;
+  align-self: center;
+}
+
+.cardDeckSearch {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  height: 25vh;
+  justify-content: space-evenly;
+  background-color: #ffffff4b;
+  backdrop-filter: blur(0.5rem);
+  font-weight: 500;
+  margin: 1rem;
+  align-self: center;
+}
+
+.cardDeckSearch>button {
+    padding: .5rem;
+background-color:#ffffff77 ;
+}
+
+.bookCard {
+  height: 20vh;
+  width: 15vw;
+  background-color: #ffffff77;
+  backdrop-filter: blur(0.5rem);
+  margin: 1rem;
+  align-self: center;
+}
+
+.Search {
+
+}
+
+.cardDeck {
+  display: flex;
+  flex-direction: row;
+  height: 25vh;
+  justify-content: space-evenly;
+  flex: 1 1 80%;
+  align-content: center;
+}
+
+
+.filtersContainer{
+
+display: flex;
+flex-direction: row;
+height: 92vh;
+margin-top: 8vh;
+background-color: #ffffff4b;
+}
+
+.filtersContainer>button {
+padding: .5rem;
+background-color:#ffffff77 ;
 }
