@@ -11,7 +11,7 @@ Purchase.init(
             primaryKey: true,
             autoIncrement: true
         },
-        book_name: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -35,11 +35,15 @@ Purchase.init(
             type: DataTypes.STRING,
             allowNull: true
         },
+        series: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         price: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        count: {
+        quantity: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
