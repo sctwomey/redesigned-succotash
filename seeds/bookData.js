@@ -5,7 +5,7 @@ const bookdata = [
     title: 'Harry Potter and the Sorcerer\'s Stone',
     author: 'J.K. Rowling',
     publisher: 'Scholastic',
-    description: 'On Harry’s eleventh birthday, an enormous wizard named Hagrid appears and explains to Harry that he is a wizard, too. Harry’s parents, Lily and James, were wizards who sacrificed themselves to save him from a supremely evil wizard named Voldemort.',
+    description: 'On Harry\'s eleventh birthday, an enormous wizard named Hagrid appears and explains to Harry that he is a wizard, too. Harry\'s parents, Lily and James, were wizards who sacrificed themselves to save him from a supremely evil wizard named Voldemort.',
     isbn_10: '1338878921',
     genre: 'Fantasy',
     series: 'Harry Potter',
