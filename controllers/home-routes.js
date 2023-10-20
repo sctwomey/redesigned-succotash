@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Book, UserFavorite, UserWishlist } = require('../models');
 const withAuth = require("../utils/auth")
 
+
 // GET user homepage
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -29,6 +30,8 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 // router.get('/user', withauth, async (req, res) => {
 //   try {
 //     // const dbFavoriteData = await Favorite.findAll({
@@ -131,13 +134,13 @@ router.get('/book/:series', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
 
-  res.render('login');
+  res.render('homepage');
 });
 
 
 router.get('/signup', (req, res) => {
 
-  res.render('signup');
+  res.render('book');
 });
 
 
