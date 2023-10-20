@@ -1,1 +1,19 @@
-<h2> Hello</h2>
+<br/><br/><br/><br/>
+ <div class="product-row">
+{{#each bookList}}
+   
+        <div class="product-card">
+        <h4>{{title}}</h4>
+        ${{price}}
+
+        <button class="addToCart" data-id="{{id}}"
+        data-name="{{title}}"
+        data-price="{{price}}"
+        
+        
+        >Add to Cart</button>
+       
+        </div>
+
+{{/each}}
+    </div>

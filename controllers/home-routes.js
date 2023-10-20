@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book } = require('../models');
+const { Book, Favorite, Wishlist } = require('../models');
 const withAuth = require("../utils/auth")
 
 // GET user homepage
@@ -10,29 +10,43 @@ router.get('/', async (req, res) => {
   //   return;
   // }
 
+
+  const bookList = await Book.findAll({
+    raw: true
+  });
+
+  console.log("i got books", bookList)
   
-  try {
-    const dbFavoriteData = await Favorite.findAll({
-      include: [
-        {
-          model: Wishlist,
-          attributes: ['title', 'publisher', 'genre', 'price'],
-        },
-      ],
-    });
+  // try {
+  const dbFavoriteData = await Favorite.findAll({
+    include: [
+      {
+        model: Wishlist,
+        attributes: ['title', 'publisher', 'genre', 'price'],
+      },
+    ],
+  });
 
-    const favoriteBooks = dbFavoriteData.map((favorite) =>
-      favorite.get({ plain: true })
-    );
+  //   const favoriteBooks = dbFavoriteData.map((favorite) =>
+  //     favorite.get({ plain: true })
+  //   );
 
-    res.render('userHomepage', {
-      favoriteBooks,
-      loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+  //   res.render('userHomepage', {
+  //     favoriteBooks,
+  //     loggedIn: req.session.loggedIn,
+  //   });
+  // } catch (err) {
+  //   console.log(err);
+  //   res.status(500).json(err);
+  // }
+  const favoriteBooks = dbFavoriteData.map((favorite) =>
+    favorite.get({ plain: true })
+  );
+  res.render('homepage', {
+    favoriteBooks,
+    loggedIn: req.session.loggedIn,
+    bookList: bookList
+  });
 });
 
 // GET one book
@@ -60,7 +74,7 @@ router.get('/author/:id', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-  )
+})
   
 // GET all books by an author
 // Use the custom middleware before allowing the user to access the book
@@ -115,6 +129,11 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   
   res.render('signup');
+});
+
+router.get('/cart', (req, res) => {
+  
+  res.render('cart');
 });
 
 

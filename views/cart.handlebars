@@ -1,0 +1,36 @@
+<div class="wrapper">
+<div id="displayCart">
+    <div id="cartContent"></div>
+    <hr>
+    <div id="total">
+    
+    </div>
+
+</div>
+</div>
+
+
+
+
+<script>
+    let myCart = localStorage.getItem("cart");
+    let myCartList = JSON.parse(myCart);
+
+    let displayEl = document.querySelector("#cartContent");
+    let total = 0;
+
+    console.log(myCartList);
+
+    for(let i =0; i< myCartList.length ; i++){
+        let {id, name, price} = myCartList[i];
+        let divEl = document.createElement("div");
+        divEl.classList.add("cart_row");
+        divEl.innerHTML = `<span>${name}</span> <span>$${price}</span>`
+        displayEl.appendChild(divEl);
+
+        total += Number(price);
+    }
+
+     let totalEl = document.querySelector("#total");
+     totalEl.innerHTML = `<span>$ ${total}</span>`;
+</script>
