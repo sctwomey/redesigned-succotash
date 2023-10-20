@@ -6,51 +6,53 @@
 
             <div class="divAsideL">
                 <div class="img">{{book_img}}</div>
+                <div class="divAsideL">
+                    <div class="img">{{Book_img}}</div>
 
-                <button class="author">{{books.author}}</button>
-                <button class="Publisher">{{books.publisher}}</button>
-                <button class="Genre">{{books.genre}}</button>
-                <button class="addToCart">{{Add To Cart}}</button>
-                <button class="Favorite">{{Favorite}}</button>
+                    <button class="author">{{book.author}}</button>
+                    <button class="Publisher">{{book.publisher}}</button>
+                    <button class="Genre">{{book.genre}}</button>
+                    <button class="addToCart">{{Add To Cart}}</button>
+                    <button class="Favorite">{{Favorite}}</button>
 
-            </div>
+                </div>
 
-            <div class="divCenter">
+                <div class="divCenter">
 
-                <div class="bookName">{{books.title}} <br>
+                    <div class="bookName">{{books.title}} <br>
 
-                    {{#if books.series}}
-                    <div class="bookSeries">{{books.series}}</div>
-                    {{/if}}
-                    <div class="inventory">{{books.quantity}}</div>
-                    <div class="price">{{books.price}}</div>
+                        {{#if books.series}}
+                        <div class="bookSeries">{{books.series}}</div>
+                        {{/if}}
+                        <div class="inventory">{{books.quantity}}</div>
+                        <div class="price">{{books.price}}</div>
+                    </div>
+
+
+
+                    <div class="bookDescription">{{books.description}}</div>
                 </div>
 
 
-
-                <div class="bookDescription">{{books.description}}</div>
             </div>
 
+            <div class="review">
+                <div class="reviewPosts">{{book_reviews}}</div>
+                <input type="text" name="postAReview" id="reviewPost" placeholder="Write a Review" />
+            </div>
 
         </div>
+        <div class="related">
 
-        <div class="review">
-            <div class="reviewPosts">{{book_reviews}}</div>
-            <input type="text" name="postAReview" id="reviewPost" placeholder="Write a Review" />
+            <div class="relatedHeader">Related Books</div>
+
+            <div class="relatedSearch">
+
+                {{#each book.related as |book|}}
+                {{> bookMiniCard}}
+                {{/each}}
+
+            </div>
         </div>
-
-    </div>
-    <div class="related">
-
-        <div class="relatedHeader">Related Books</div>
-
-        <div class="relatedSearch">
-
-            {{#each book.related as |book|}}
-            {{> bookMiniCard}}
-            {{/each}}
-
-        </div>
-    </div>
 
 </main>

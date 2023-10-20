@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Book, UserFavorite, UserWishlist } = require('../models');
 const withAuth = require("../utils/auth")
 
+
 // GET user homepage
 router.get('/', async (req, res) => {
   try {
@@ -161,13 +162,13 @@ router.get('/book/:id', async (req, res) => {
 
 router.get('/login', (req, res) => {
 
-  res.render('login');
+  res.render('homepage');
 });
 
 
 router.get('/signup', (req, res) => {
 
-  res.render('signup');
+  res.render('book');
 });
 
 module.exports = router;
