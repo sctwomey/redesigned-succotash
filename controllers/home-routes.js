@@ -1,27 +1,27 @@
 const router = require('express').Router();
-const { Book, Favorite } = require('../models');
+const { Book, UserFavorite, UserWishlist } = require('../models');
 const withAuth = require("../utils/auth")
 
 // GET user homepage
 router.get('/', async (req, res) => {
   try {
-    // const dbFavoriteData = await Favorite.findAll({
-    //   include: [
-    //     {
-    //       model: Wishlist,
-    //       attributes: ['title', 'publisher', 'genre', 'price'],
-    //     },
-    //   ],
-    // });
+    const dbFavoriteData = await UserFavorite.findAll({
+      include: [
+        {
+          model: UserWishlist,
+          attributes: ['title', 'publisher', 'genre', 'price'],
+        },
+      ],
+    });
 
-    // const favoriteBooks = dbFavoriteData.map((favorite) =>
-    //   favorite.get({ plain: true })
-    // );
+    const favoriteBooks = dbFavoriteData.map((favorite) =>
+      favorite.get({ plain: true })
+    );
 
-    // res.render('userHomepage', {
-    //   favoriteBooks,
-    //   loggedIn: req.session.loggedIn,
-    // });
+    res.render('userHome', {
+      favoriteBooks,
+      loggedIn: req.session.loggedIn,
+    });
 
     res.render('book')
   } catch (err) {
@@ -56,7 +56,7 @@ router.get('/author/:id', async (req, res) => {
     res.status(500).json(err);
   }
 })
-  
+
 // GET all books by an author
 // Use the custom middleware before allowing the user to access the book
 router.get('/book/:author', withAuth, async (req, res) => {
