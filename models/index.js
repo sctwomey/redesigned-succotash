@@ -14,17 +14,17 @@ Book.belongsTo(User, {
 
 Book.belongsToMany(User, {
   through: UserFavorite,
-  as: 'user-favorite'
+  foreignKey: 'favorite_id',
 });
 
-Book.belongsToMany(User, {
-  through: UserWishlist,
-  as: 'user-wishlist'
-});
+// Book.belongsToMany(User, {
+//   through: UserWishlist,
+//   as: 'user-wishlist'
+// });
 
-Book.belongsToMany(User, {
-  through: UserPurchase,
-  as: 'user-purchase'
-});
+// Book.belongsToMany(User, {
+//   through: UserPurchase,
+//   as: 'user-purchase'
+// });
 
 module.exports = { User, Book, UserFavorite, UserPurchase, UserWishlist };

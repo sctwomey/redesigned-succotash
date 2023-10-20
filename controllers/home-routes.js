@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, UserFavorite, UserWishlist } = require('../models');
+const { Book, User, UserFavorite, UserWishlist } = require('../models');
 const withAuth = require("../utils/auth")
 
 
@@ -79,6 +79,15 @@ router.get('/userHome', async (req, res) => {
 router.get('/book/:id', async (req, res) => {
   try {
     const dbBookData = await Book.findByPk(req.params.id);
+
+    // const dbFavorite = await Book.findAll({
+    //   include: [{
+    //     model: User,
+    //     through: UserFavorite
+    //   }]
+    // });
+
+    // console.log(dbFavorite);
 
     const books = dbBookData.get({ plain: true });
 
