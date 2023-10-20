@@ -3,7 +3,7 @@ const { Book, UserFavorite, UserWishlist } = require('../models');
 const withAuth = require("../utils/auth")
 
 // GET user homepage
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const dbFavoriteData = await UserFavorite.findAll({
       include: [
@@ -18,12 +18,12 @@ router.get('/', async (req, res) => {
       favorite.get({ plain: true })
     );
 
-    res.render('userHome', {
+    res.render('book', {
       favoriteBooks,
       loggedIn: req.session.loggedIn,
     });
 
-    res.render('login')
+    res.render('book')
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
