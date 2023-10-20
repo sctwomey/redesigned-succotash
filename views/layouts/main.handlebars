@@ -16,12 +16,13 @@
       <p id="logo">Book-A-Zon</p>
       <input type="text" name="Search" id="searchinput" placeholder="Search" />
       <div id="btnContainer">
-        <button id="cart"><a href="cart">Cart</a></button>
+        
         {{#if logged_in}}
         <h4>Hello, {{user.username}} </h4>
+        <button class="btn" id="cart"><a href="cart">Cart</a></button>
           <button class="btn" id="logout">logout</button>
         {{else}}
-          <button id="login"><a href="/Login">Login</a></button>
+          <button class="btn" id="login"><a href="/signup">Sign Up</a></button>
         {{/if}}
       </div>
 
