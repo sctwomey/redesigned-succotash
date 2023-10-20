@@ -5,30 +5,63 @@ const withAuth = require("../utils/auth")
 // GET user homepage
 router.get('/', async (req, res) => {
   try {
-    // const dbFavoriteData = await Favorite.findAll({
-    //   include: [
-    //     {
-    //       model: Wishlist,
-    //       attributes: ['title', 'publisher', 'genre', 'price'],
-    //     },
-    //   ],
-    // });
+    const dbFavoriteData = await Favorite.findAll({
+      include: [
+        {
+          model: Wishlist,
+          attributes: ['title', 'publisher', 'genre', 'price'],
+        },
+      ],
+    });
+    const dbBookData = await Book.findByPk(req.params.id);
 
-    // const favoriteBooks = dbFavoriteData.map((favorite) =>
-    //   favorite.get({ plain: true })
-    // );
+    const book = dbBookData.get({ plain: true });
 
-    // res.render('userHomepage', {
-    //   favoriteBooks,
-    //   loggedIn: req.session.loggedIn,
-    // });
+    const favoriteBooks = dbFavoriteData.map((favorite) =>
+      favorite.get({ plain: true })
+    );
 
-    res.render('book')
+    res.render('book', {
+      favoriteBooks,
+      loggedIn: req.session.loggedIn,
+    });
+
+    res.render('login')
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
+// router.get('/user', withauth, async (req, res) => {
+//   try {
+//     // const dbFavoriteData = await Favorite.findAll({
+//     //   include: [
+//     //     {
+//     //       model: Wishlist,
+//     //       attributes: ['title', 'publisher', 'genre', 'price'],
+//     //     },
+//     //   ],
+//     // });
+//     const dbBookData = await Book.findByPk(req.params.id);
+
+//     const book = dbBookData.get({ plain: true });
+
+//     // const favoriteBooks = dbFavoriteData.map((favorite) =>
+//     //   favorite.get({ plain: true })
+//     // );
+
+//     // res.render('userHomepage', {
+//     //   favoriteBooks,
+//     //   loggedIn: req.session.loggedIn,
+//     // });
+
+//     res.render('userhomepage')
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
 
 // GET one book
 // Use the custom middleware before allowing the user to access the book

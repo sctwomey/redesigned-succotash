@@ -7,9 +7,9 @@
                 <div class="divAsideL">
                     <div class="img">{{book_img}}</div>
 
-                    <button class="author">{{Author}}</button>
-                    <button class="Publisher">{{Publisher}}</button>
-                    <button class="Genre">{{Genre}}</button>
+                    <button class="author">{{book.author}}</button>
+                    <button class="Publisher">{{book.publisher}}</button>
+                    <button class="Genre">{{book.genre}}</button>
                     <button class="addToCart">{{Add To Cart}}</button>
                     <button class="Favorite">{{Favorite}}</button>
 
@@ -17,14 +17,18 @@
 
                 <div class="divCenter">
 
-                    <div class="bookName">{{Book_name}} <br>
-                        <div class="inventory">{{book_count}}</div>
-                        <div class="price">{{book_price}}</div>
+                    <div class="bookName">{{book.title}} <br>
+
+                    {{#if book.series}}
+                    <div class="bookSeries">{{book.series}}</div>
+                    {{/if}}
+                        <div class="inventory">{{book.quantity}}</div>
+                        <div class="price">{{book.price}}</div>
                     </div>
 
 
 
-                    <div class="bookDescription">{{book_description}}</div>
+                    <div class="bookDescription">{{book.description}}</div>
                 </div>
 
 
