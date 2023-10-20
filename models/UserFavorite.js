@@ -15,7 +15,7 @@ UserFavorite.init(
         favorite_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'favorite',
+                model: 'book',
                 key: 'id',
             },
         }

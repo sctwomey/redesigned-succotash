@@ -15,7 +15,7 @@ UserWishlist.init(
         favorite_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'wishlist',
+                model: 'book',
                 key: 'id',
             },
         }
