@@ -18,10 +18,10 @@ router.get('/', async (req, res) => {
       favorite.get({ plain: true })
     );
 
-    // res.render('userHomepage', {
-    //   favoriteBooks,
-    //   loggedIn: req.session.loggedIn,
-    // });
+    res.render('userHome', {
+      favoriteBooks,
+      loggedIn: req.session.loggedIn,
+    });
 
     res.render('login')
   } catch (err) {
