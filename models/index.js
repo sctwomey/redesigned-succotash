@@ -13,27 +13,18 @@ Book.belongsTo(User, {
 });
 
 Book.belongsToMany(User, {
-  through: UserFavorite
-});
-
-User.belongsToMany(Book, {
-  through: UserFavorite
+  through: UserFavorite,
+  as: 'user-favorite'
 });
 
 Book.belongsToMany(User, {
-  through: UserWishlist
-});
-
-User.belongsToMany(Book, {
-  through: UserWishlist
+  through: UserWishlist,
+  as: 'user-wishlist'
 });
 
 Book.belongsToMany(User, {
-  through: UserPurchase
-});
-
-User.belongsToMany(Book, {
-  through: UserPurchase
+  through: UserPurchase,
+  as: 'user-purchase'
 });
 
 module.exports = { User, Book, UserFavorite, UserPurchase, UserWishlist };

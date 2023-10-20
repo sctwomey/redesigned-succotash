@@ -1,34 +1,34 @@
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/jass.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/script.js" defer></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/jass.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js" defer></script>
 
-    <title>Scribble & Prose</title>
-  </head>
+  <title>Scribble-Prose</title>
+</head>
 
-  <body>
-    <header>
+<body>
+  <header>
 
-      <p id="logo">Book-A-Zon</p>
-      <input type="text" name="Search" id="searchinput" placeholder="Search" />
-      <div id="btnContainer">
-        <button id="cart"><a href="cart">Cart</a></button>
-        {{#if logged_in}}
-        <h4>Hello, {{user.username}} </h4>
-          <button class="btn" id="logout">logout</button>
-        {{else}}
-          <button id="login"><a href="/Login">Login</a></button>
-        {{/if}}
-      </div>
+    <p id="logo">Book-A-Zon</p>
+    <input type="text" name="Search" id="searchinput" placeholder="Search" />
+    <div id="btnContainer">
+      <button id="cart"><a href="cart">Cart</a></button>
+      {{#if logged_in}}
+      <h4>Hello, {{user.username}} </h4>
+      <button class="btn" id="logout">logout</button>
+      {{else}}
+      <button id="login"><a href="/Login">Login</a></button>
+      {{/if}}
+    </div>
 
-    </header>
+  </header>
 
-    {{{body}}}
+  {{{body}}}
 
-  </body>
+</body>
 
 </html>
