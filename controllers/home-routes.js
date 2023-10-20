@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/search', async (req, res) => {
+router.get('/book/search', async (req, res) => {
   try {
     res.render('search');
   } catch (err) {
@@ -22,7 +22,7 @@ router.get('/search', async (req, res) => {
   }
 });
 
-router.get('/author', async (req, res) => {
+router.get('/book/author', async (req, res) => {
   try {
     res.render('author');
   } catch (err) {
@@ -40,7 +40,7 @@ router.get('/book', async (req, res) => {
   }
 });
 
-router.get('/cart', async (req, res) => {
+router.get('/book/cart', async (req, res) => {
   try {
     res.render('cart');
   } catch (err) {
@@ -49,7 +49,7 @@ router.get('/cart', async (req, res) => {
   }
 });
 
-router.get('/genre', async (req, res) => {
+router.get('/book/genre', async (req, res) => {
   try {
     res.render('genre');
   } catch (err) {
@@ -58,7 +58,7 @@ router.get('/genre', async (req, res) => {
   }
 });
 
-router.get('/series', async (req, res) => {
+router.get('/book/series', async (req, res) => {
   try {
     res.render('series');
   } catch (err) {
@@ -67,7 +67,7 @@ router.get('/series', async (req, res) => {
   }
 });
 
-router.get('/userHome', async (req, res) => {
+router.get('/book/userHome', async (req, res) => {
   try {
     res.render('userHome');
   } catch (err) {

@@ -24,7 +24,7 @@ UserFavorite.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'userFavorite'
+        modelName: 'user_favorite'
     });
 
 module.exports = UserFavorite;
