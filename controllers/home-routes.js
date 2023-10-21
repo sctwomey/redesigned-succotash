@@ -3,7 +3,7 @@ const { Book, User, UserFavorite, UserWishlist } = require('../models');
 const withAuth = require("../utils/auth")
 
 
-// GET user homepage
+// GET default homepage
 router.get('/', async (req, res) => {
   try {
     res.render('homepage');
@@ -22,6 +22,7 @@ router.get('/search', async (req, res) => {
   }
 });
 
+// GET all authors in the database with the titles of each of their books.
 router.get('/author', async (req, res) => {
   try {
     const dbAuthorData = await Book.findAll({
@@ -40,8 +41,16 @@ router.get('/author', async (req, res) => {
   }
 });
 
+// GET all books.
 router.get('/book', async (req, res) => {
   try {
+    const dbBooksData = await Book.findAll();
+    const allBooks = dbBooksData.map((genre) =>
+      genre.get({ plain: true })
+    );
+
+    console.log(allBooks);
+
     res.render('book');
   } catch (err) {
     console.log(err);
@@ -58,6 +67,7 @@ router.get('/cart', async (req, res) => {
   }
 });
 
+// GET all books by genre.
 router.get('/genre', async (req, res) => {
   try {
     const dbGenreData = await Book.findAll({
@@ -76,6 +86,7 @@ router.get('/genre', async (req, res) => {
   }
 });
 
+// GET all books by series.
 router.get('/series', async (req, res) => {
   try {
     const dbSeriesData = await Book.findAll({
@@ -103,6 +114,7 @@ router.get('/userHome', async (req, res) => {
   }
 });
 
+// GET a specific book by id.
 router.get('/book/:id', async (req, res) => {
   try {
     const dbBookData = await Book.findByPk(req.params.id);

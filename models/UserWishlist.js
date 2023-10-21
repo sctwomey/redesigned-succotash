@@ -24,7 +24,7 @@ UserWishlist.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'userWishlist'
+        modelName: 'user_wishlist'
     }
 );
 

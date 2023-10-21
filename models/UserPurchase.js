@@ -24,7 +24,7 @@ UserPurchase.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'userPurchase'
+        modelName: 'user_purchase'
     }
 );
 
