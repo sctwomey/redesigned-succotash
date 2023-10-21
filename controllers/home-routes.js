@@ -1,140 +1,210 @@
 const router = require('express').Router();
-const { Book, Favorite, Wishlist } = require('../models');
+const { Book, User, UserFavorite, UserWishlist } = require('../models');
 const withAuth = require("../utils/auth")
+
 
 // GET user homepage
 router.get('/', async (req, res) => {
+  try {
+    res.render('homepage');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-    // if (req.session.loggedIn) {
-  //   res.redirect('/');
-  //   return;
-  // }
+router.get('/search', async (req, res) => {
+  try {
+    res.render('search');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
+router.get('/author', async (req, res) => {
+  try {
+    const dbAuthorData = await Book.findAll({
+      attributes: ['title', 'author']
+    });
+    const authors = dbAuthorData.map((author) =>
+      author.get({ plain: true })
+    );
 
-  const bookList = await Book.findAll({
-    raw: true
-  });
+    console.log(authors);
 
-  console.log("i got books", bookList)
-  
-  // try {
-  const dbFavoriteData = await Favorite.findAll({
-    include: [
-      {
-        model: Wishlist,
-        attributes: ['title', 'publisher', 'genre', 'price'],
-      },
-    ],
-  });
+    res.render('author');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-  //   const favoriteBooks = dbFavoriteData.map((favorite) =>
-  //     favorite.get({ plain: true })
-  //   );
+router.get('/book', async (req, res) => {
+  try {
+    res.render('book');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-  //   res.render('userHomepage', {
-  //     favoriteBooks,
-  //     loggedIn: req.session.loggedIn,
-  //   });
-  // } catch (err) {
-  //   console.log(err);
-  //   res.status(500).json(err);
-  // }
-  const favoriteBooks = dbFavoriteData.map((favorite) =>
-    favorite.get({ plain: true })
-  );
-  res.render('homepage', {
-    favoriteBooks,
-    loggedIn: req.session.loggedIn,
-    bookList: bookList
-  });
+router.get('/cart', async (req, res) => {
+  try {
+    res.render('cart');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/genre', async (req, res) => {
+  try {
+    const dbGenreData = await Book.findAll({
+      attributes: ['title', 'genre']
+    });
+    const genres = dbGenreData.map((genre) =>
+      genre.get({ plain: true })
+    );
+
+    console.log(genres);
+
+    res.render('genre');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/series', async (req, res) => {
+  try {
+    const dbSeriesData = await Book.findAll({
+      attributes: ['title', 'series']
+    });
+    const bookSeries = dbSeriesData.map((series) =>
+      series.get({ plain: true })
+    );
+
+    console.log(bookSeries);
+
+    res.render('series');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/userHome', async (req, res) => {
+  try {
+    res.render('userHome');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/book/:id', async (req, res) => {
+  try {
+    const dbBookData = await Book.findByPk(req.params.id);
+
+    const dbFavorite = await Book.findAll({
+      include: [{
+        model: User,
+        through: UserFavorite,
+      }]
+    });
+
+    console.log(dbFavorite);
+
+    const books = dbBookData.get({ plain: true });
+
+    res.render('book', {
+      books
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 // GET one book
 // Use the custom middleware before allowing the user to access the book
-router.get('/book/:id', withAuth, async (req, res) => {
-  try {
-    const dbBookData = await Book.findByPk(req.params.id);
+// router.get('/book/:id', withAuth, async (req, res) => {
+//   try {
+//     const dbBookData = await Book.findByPk(req.params.id);
 
-    const book = dbBookData.get({ plain: true });
-    res.render('book', { book, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     const book = dbBookData.get({ plain: true });
+//     res.render('book', { book, loggedIn: req.session.loggedIn });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 
-router.get('/author/:id', async (req, res) => {
-  try {
-    // const dbAuthorData = await Author.findByPk(req.params.id);
+// router.get('/author/:id', async (req, res) => {
+//   try {
+//     // const dbAuthorData = await Author.findByPk(req.params.id);
 
-    // const author = dbAuthorData.get({ plain: true });
-    res.render('author', { loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-})
-  
+//     // const author = dbAuthorData.get({ plain: true });
+//     res.render('author', { loggedIn: req.session.loggedIn });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// })
+
 // GET all books by an author
 // Use the custom middleware before allowing the user to access the book
-router.get('/book/:author', withAuth, async (req, res) => {
-  try {
-    const dbAuthorData = await Book.findByPk(req.params.author);
+// router.get('/book/:author', withAuth, async (req, res) => {
+//   try {
+//     const dbAuthorData = await Book.findAll(req.params.author);
 
-    const bookAuthor = dbAuthorData.get({ plain: true });
-    res.render('author', { bookAuthor, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     const bookAuthor = dbAuthorData.get({ plain: true });
+//     res.render('author', { bookAuthor, loggedIn: req.session.loggedIn });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 // GET all books by genre
 // Use the custom middleware before allowing the user to access the book
-router.get('/book/:genre', withAuth, async (req, res) => {
-  try {
-    const dbGenreData = await Book.findByPk(req.params.genre);
+// router.get('/book/:genre', withAuth, async (req, res) => {
+//   try {
+//     const dbGenreData = await Book.findAll(req.params.genre);
 
-    const bookGenre = dbGenreData.get({ plain: true });
-    res.render('genre', { bookGenre, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     const bookGenre = dbGenreData.get({ plain: true });
+//     res.render('genre', { bookGenre, loggedIn: req.session.loggedIn });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 // GET all books in a series
 // Use the custom middleware before allowing the user to access the book
-router.get('/books/:series', withAuth, async (req, res) => {
-  try {
-    const dbSeriesData = await Book.findByPk(req.params.series);
+// router.get('/book/:series', withAuth, async (req, res) => {
+//   try {
+//     const dbSeriesData = await Book.findAll(req.params.series);
 
-    const bookSeries = dbSeriesData.get({ plain: true });
-    res.render('book', { bookSeries, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
+//     const bookSeries = dbSeriesData.get({ plain: true });
+//     res.render('series', { bookSeries, loggedIn: req.session.loggedIn });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
 
-
-  res.render('login');
+  res.render('homepage');
 });
 
 
 router.get('/signup', (req, res) => {
-  
-  res.render('signup');
-});
 
-router.get('/cart', (req, res) => {
-  
-  res.render('cart');
+  res.render('book');
 });
-
 
 module.exports = router;

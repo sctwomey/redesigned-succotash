@@ -39,6 +39,14 @@ main {
   flex-direction: row;
 }
 
+.btn {
+    padding: .2rem;
+}
+
+.btn>a {
+    flex-wrap: ;
+}
+
 .filters {
   flex: 1 1 15vw;
   background-color: #99999977;
@@ -70,7 +78,6 @@ main {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
-
 
 .show {
   display: flex;
@@ -247,9 +254,9 @@ main {
   align-self: center;
 }
 
-.cardDeckSearch>button {
-    padding: .5rem;
-background-color:#ffffff77 ;
+.cardDeckSearch > button {
+  padding: 0.5rem;
+  background-color: #ffffff77;
 }
 
 .bookCard {
@@ -262,7 +269,6 @@ background-color:#ffffff77 ;
 }
 
 .Search {
-
 }
 
 .cardDeck {
@@ -274,35 +280,86 @@ background-color:#ffffff77 ;
   align-content: center;
 }
 
-
-.filtersContainer{
-
-display: flex;
-flex-direction: row;
-height: 92vh;
-margin-top: 8vh;
-background-color: #ffffff4b;
-}
-
-.filtersContainer>button {
-padding: .5rem;
-background-color:#ffffff77 ;
-}
-#signupWrapper, .wrapper{
+.filtersContainer {
   display: flex;
-  justify-content: center;
-  margin-top: 100px;
+  flex-direction: row;
+  height: 92vh;
+  margin-top: 8vh;
+  background-color: #ffffff4b;
 }
-#signupForm, .form{
+
+.filtersContainer > button {
+  padding: 0.5rem;
+  background-color: #ffffff77;
+}
+
+#loginForm {
+  width: 25vw;
+  background-color: #99999977;
+  height: 75vh;
+  margin: 2rem;
+  flex-direction: column;
+  display: flex;
+  background-color: #ffffff77;
+  backdrop-filter: blur(0.5rem);
+  justify-content: space-evenly;
+  align-content: center;
+  padding: 1.5rem;
+}
+
+#loginForm > p {
+  align-self: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#loginForm > button {
+  margin-top: 0.5rem;
+}
+
+.loginInput > input {
+  align-self: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem;
+  width: 100%;
+  margin: 0.5rem;
+}
+
+#registerForm {
+  flex: 0 1 30vw;
+  background-color: #99999977;
+  height: 60vh;
+  margin: 5rem;
+  flex-direction: column;
+  display: flex;
+  background-color: #ffffff77;
+  backdrop-filter: blur(0.5rem);
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+#registerForm > p {
+  align-self: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.loginReg {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  margin-top: 8vh;
+}
+
+.loginInput {
   display: flex;
   flex-direction: column;
-  padding: 5px;
-  color: white;
-  gap: 10px;;
-  max-width: 600px;
 }
-#signupForm input{
-  padding: 20px;
+
+.loginInput > input {
+  /* margin:.2rem; */
 }
 #signupForm input[type="submit"]{
   max-width: 100px;
@@ -341,3 +398,51 @@ background-color:#ffffff77 ;
   font-size: 20px;;
   justify-content: end;
 }
+
+.regInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.regInput > input {
+  margin: 0.2rem;
+}
+
+#homeLoginForm {
+  width: 100%;
+
+  background-color: #99999977;
+  height: 60vh;
+  /* margin-top: 3.5rem; */
+  flex-direction: column;
+  display: flex;
+  background-color: #ffffff77;
+  backdrop-filter: blur(0.5rem);
+  justify-content: space-evenly;
+  align-content: center;
+  position: fixed;
+  top: 3.7rem;
+}
+
+#homepageDeck{
+  
+    display: flex;
+    flex-direction: row;
+    width: 98vw;
+    height: 25vh;
+    justify-content: space-evenly;
+    background-color: #ffffff4b;
+    backdrop-filter: blur(0.5rem);
+    font-weight: 500;
+    margin: .7rem;
+    align-self: center;
+    position: fixed;
+    bottom: 0;
+    flex-wrap: nowrap;
+}
+
+/* cart page styles */
+
+
+
+/* search styles */

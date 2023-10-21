@@ -1,8 +1,8 @@
 const User = require('./User');
 const Book = require('./Book');
-const Favorite = require('./Favorite');
-const Wishlist = require('./Wishlist');
-const Purchase = require('./Purchase');
+const UserFavorite = require('./UserFavorite');
+const UserWishlist = require('./UserWishlist');
+const UserPurchase = require('./UserPurchase');
 
 User.hasMany(Book, {
   foreignKey: 'user_id',
@@ -12,32 +12,19 @@ Book.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-User.hasMany(Favorite, {
-  foreignKey: 'user_id',
+Book.belongsToMany(User, {
+  through: UserFavorite,
+  foreignKey: 'favorite_id',
 });
 
-Favorite.belongsTo(User, {
-  foreignKey: 'user_id',
-});
+// Book.belongsToMany(User, {
+//   through: UserWishlist,
+//   foreignKey: 'wishlist_id'
+// });
 
-Favorite.belongsTo(Wishlist, {
-  foreignKey: 'wishlist_id',
-})
+// Book.belongsToMany(User, {
+//   through: UserPurchase,
+//   foreignKey: 'purchase_id'
+// });
 
-User.hasMany(Wishlist, {
-  foreignKey: 'user_id',
-});
-
-Wishlist.belongsTo(User, {
-  foreignKey: 'user_id',
-});
-
-User.hasMany(Purchase, {
-  foreignKey: 'user_id',
-});
-
-Purchase.belongsTo(User, {
-  foreignKey: 'user_id',
-});
-
-module.exports = { User, Book, Favorite, Wishlist, Purchase };
+module.exports = { User, Book, UserFavorite, UserPurchase, UserWishlist };

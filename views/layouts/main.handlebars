@@ -1,33 +1,30 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/jass.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/jass.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="/js/script.js" defer></script>
 
-    <title>Scribble & Prose</title>
+    <title>Scribble-Prose</title>
 </head>
 
 <body>
     <header>
 
         <p id="logo">Book-A-Zon</p>
-        <div>
-            <input type="text" name="Search" id="searchinput" placeholder="Search">
-            <button onclick="performSearch()">search</button>
-        </div>
+        <input type="text" name="Search" id="searchinput" placeholder="Search" />
+        <button onclick="performSearch()">search</button>
         <div id="btnContainer">
             <button id="cart"><a href="cart">Cart</a></button>
-            <button id="login"><a href="Login">Login</a></button>
-            <button id="login"><a href="signup">Sign Up</a></button>
+            {{#if logged_in}}
+            <h4>Hello, {{user.username}} </h4>
+            <button class="btn" id="logout">logout</button>
+            {{else}}
+            <button id="login"><a href="/Login">Login</a></button>
+            {{/if}}
         </div>
-
-
-
-        {{{header}}}
 
     </header>
 
