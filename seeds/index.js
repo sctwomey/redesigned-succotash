@@ -8,15 +8,15 @@ const seedWishlistBook = require('./userWishlistData');
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
+  // await seedUser();
+
   await seedBook();
 
-  await seedUser();
+  // await seedFavoriteBook();
 
-  await seedFavoriteBook();
+  // await seedPurchaseBook();
 
-  await seedPurchaseBook();
-
-  await seedWishlistBook();
+  // await seedWishlistBook();
 
   process.exit(0);
 };

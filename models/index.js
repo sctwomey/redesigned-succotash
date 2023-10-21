@@ -17,6 +17,11 @@ Book.belongsToMany(User, {
   foreignKey: 'favorite_id',
 });
 
+User.belongsToMany(Book, {
+  through: UserFavorite,
+  foreignKey: 'user_id',
+});
+
 // Book.belongsToMany(User, {
 //   through: UserWishlist,
 //   foreignKey: 'wishlist_id'
