@@ -15,23 +15,27 @@
     <header>
 
         <p id="logo">Book-A-Zon</p>
-        <input type="text" name="Search" id="searchinput" placeholder="Search">
+        <div>
+            <input type="text" name="Search" id="searchinput" placeholder="Search">
+            <button onclick="performSearch()">search</button>
+        </div>
         <div id="btnContainer">
             <button id="cart"><a href="cart">Cart</a></button>
             <button id="login"><a href="Login">Login</a></button>
-               <button id="login"><a href="signup">Sign Up</a></button>
+            <button id="login"><a href="signup">Sign Up</a></button>
         </div>
-    
+
 
 
         {{{header}}}
 
     </header>
-   
-        
-            {{{body}}}
 
-       <script src="/js/login.js" defer></script>
+
+    {{{body}}}
+
+    <script src="/js/login.js" defer></script>
+    <script src="/js/header.js"></script>
 
 </body>
 
