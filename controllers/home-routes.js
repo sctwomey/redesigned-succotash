@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/book/search', async (req, res) => {
+router.get('/search', async (req, res) => {
   try {
     res.render('search');
   } catch (err) {
@@ -22,8 +22,17 @@ router.get('/book/search', async (req, res) => {
   }
 });
 
-router.get('/book/author', async (req, res) => {
+router.get('/author', async (req, res) => {
   try {
+    const dbAuthorData = await Book.findAll({
+      attributes: ['title', 'author']
+    });
+    const authors = dbAuthorData.map((author) =>
+      author.get({ plain: true })
+    );
+
+    console.log(authors);
+
     res.render('author');
   } catch (err) {
     console.log(err);
@@ -40,7 +49,7 @@ router.get('/book', async (req, res) => {
   }
 });
 
-router.get('/book/cart', async (req, res) => {
+router.get('/cart', async (req, res) => {
   try {
     res.render('cart');
   } catch (err) {
@@ -49,8 +58,17 @@ router.get('/book/cart', async (req, res) => {
   }
 });
 
-router.get('/book/genre', async (req, res) => {
+router.get('/genre', async (req, res) => {
   try {
+    const dbGenreData = await Book.findAll({
+      attributes: ['title', 'genre']
+    });
+    const genres = dbGenreData.map((genre) =>
+      genre.get({ plain: true })
+    );
+
+    console.log(genres);
+
     res.render('genre');
   } catch (err) {
     console.log(err);
@@ -58,8 +76,17 @@ router.get('/book/genre', async (req, res) => {
   }
 });
 
-router.get('/book/series', async (req, res) => {
+router.get('/series', async (req, res) => {
   try {
+    const dbSeriesData = await Book.findAll({
+      attributes: ['title', 'series']
+    });
+    const bookSeries = dbSeriesData.map((series) =>
+      series.get({ plain: true })
+    );
+
+    console.log(bookSeries);
+
     res.render('series');
   } catch (err) {
     console.log(err);
@@ -67,7 +94,7 @@ router.get('/book/series', async (req, res) => {
   }
 });
 
-router.get('/book/userHome', async (req, res) => {
+router.get('/userHome', async (req, res) => {
   try {
     res.render('userHome');
   } catch (err) {
@@ -80,14 +107,14 @@ router.get('/book/:id', async (req, res) => {
   try {
     const dbBookData = await Book.findByPk(req.params.id);
 
-    // const dbFavorite = await Book.findAll({
-    //   include: [{
-    //     model: User,
-    //     through: UserFavorite
-    //   }]
-    // });
+    const dbFavorite = await Book.findAll({
+      include: [{
+        model: User,
+        through: UserFavorite,
+      }]
+    });
 
-    // console.log(dbFavorite);
+    console.log(dbFavorite);
 
     const books = dbBookData.get({ plain: true });
 

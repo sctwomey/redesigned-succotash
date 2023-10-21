@@ -42,7 +42,7 @@ const bookdata = [
     author: 'J.K. Rowling',
     publisher: 'Scholastic',
     description: 'Harry is in his fourth year at Hogwarts School of Witchcraft and Wizardry, and the mystery surrounding the entry of Harry\'s name into the Triwizard Tournament, in which he is forced to compete.',
-    isbn_10: '	074754624X',
+    isbn_10: '074754624X',
     genre: 'Fantasy',
     series: 'Harry Potter',
     price: '7.99',
