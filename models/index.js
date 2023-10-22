@@ -37,4 +37,4 @@ User.belongsToMany(Book, {
 //   foreignKey: 'purchase_id'
 // });
 
-module.exports = { User, Book, UserFavorite, UserPurchase, UserWishlist };
+module.exports = { User, Book, Favorite, Purchase, Wishlist };
