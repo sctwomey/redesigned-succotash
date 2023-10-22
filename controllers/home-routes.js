@@ -223,9 +223,31 @@ router.get('/favoritebooks', async (req, res) => {
 //   }
 // });
 
+
+router.get('/author/:author', async (req, res) => {
+  let author = decodeURI(req.params.author);
+  let books = await Book.findAll({
+    where:{
+      author: author
+    },
+    raw: true
+  })
+
+  console.log("books", books)
+
+  res.render("author", {
+    author: author,
+    bookList: books
+  })
+   
+
+
+});
+
+
 router.get('/login', (req, res) => {
 
-  res.render('homepage');
+  res.render('login');
 });
 
 
