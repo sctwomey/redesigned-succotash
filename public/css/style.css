@@ -410,12 +410,14 @@ main {
 
 #homeLoginForm {
   width: 100%;
+ 
 
   background-color: #99999977;
   height: 60vh;
   /* margin-top: 3.5rem; */
   flex-direction: column;
   display: flex;
+
   background-color: #ffffff77;
   backdrop-filter: blur(0.5rem);
   justify-content: space-evenly;
@@ -446,3 +448,13 @@ main {
 
 
 /* search styles */
+
+
+/*author page styles*/
+.author h1{
+  text-align: center;
+  color: white;
+}
+.author  img{
+  max-width: 220px;
+}

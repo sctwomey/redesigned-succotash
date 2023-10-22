@@ -56,7 +56,7 @@ function makeBookCard( /** @type {Book} */ book) {
     return `
     <div class="product-card">
         <h4>${book.title}</h4>
-        <p>${book.author}</p>
+        <p><a href="/author/${book.author}">${book.author}</a></p>
         $${book.price}
 
         <button class="addToCart" data-id="${book.id}" data-name="${book.title}" data-price="${book.price}">Add to Cart</button>
