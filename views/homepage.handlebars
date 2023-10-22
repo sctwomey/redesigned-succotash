@@ -1,26 +1,41 @@
+<br /><br /><br /><br />
+<div class="product-row">
+    {{#each bookList}}
 
-      
-      <div id="homeLoginForm" >
-       <form action="login" id="loginForm" >
+    <div class="product-card">
+        <h4>{{title}}</h4>
+       
+        ${{price}}
 
-        <h2>Welcome,</h2> 
-            
-            
-           <p> Please log in to continue</p>
-        <div class="loginInput">
-        <input type="text" placeholder="Email" id="loginEmail">
-        <input type="text" placeholder="Password" id="loginPassword">
+        <button class="addToCart" data-id="{{id}}" data-name="{{title}}" data-price="{{price}}">Add to Cart</button>
+
     </div>
-        <button>Submit</button>
-       </form>
-       </div>
 
-       <div id="homepageDeck" >
-                <button id="booksBack"><i class="arrowLeft"></i></button>
-                <div class="cardDeck">
-                    {{#each book.matches as |book|}}
-                    {{> bookMiniCard}}
-                    {{/each}}
-                </div>
-                <button id="booksNext"><i class="arrowRight"></i></button>
-            </div>
+    {{/each}}
+</div>
+
+
+{{!-- <div id="homeLoginForm">
+    <form action="login" id="loginForm">
+
+        <h2>Welcome,</h2>
+
+
+        <p> Please log in to continue</p>
+        <div class="loginInput">
+            <input type="text" placeholder="Email" id="loginEmail">
+            <input type="text" placeholder="Password" id="loginPassword">
+        </div>
+        <button>Submit</button>
+    </form>
+</div> --}}
+
+<div id="homepageDeck">
+    <button id="booksBack"><i class="arrowLeft"></i></button>
+    <div class="cardDeck">
+        {{#each book.matches as |book|}}
+        {{> bookMiniCard}}
+        {{/each}}
+    </div>
+    <button id="booksNext"><i class="arrowRight"></i></button>
+</div>

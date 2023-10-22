@@ -11,7 +11,8 @@ const bookdata = [
     series: 'Harry Potter',
     price: '7.99',
     quantity: '25',
-    condition_new: true
+    condition_new: true,
+    image: "bookfilehere.jpg",
   },
   {
     title: 'Harry Potter and the Chamber of Secrets',

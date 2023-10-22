@@ -361,6 +361,43 @@ main {
 .loginInput > input {
   /* margin:.2rem; */
 }
+#signupForm input[type="submit"]{
+  max-width: 100px;
+}
+
+.product-row{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.product-card{
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 31%;
+}
+
+#displayCart{
+  margin-top: 100px;
+  background-color: white;;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+.cart_row{
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+#total{
+  display: flex;
+  padding: 10px 0px;
+  font-size: 20px;;
+  justify-content: end;
+}
 
 .regInput {
   display: flex;
@@ -373,12 +410,14 @@ main {
 
 #homeLoginForm {
   width: 100%;
+ 
 
   background-color: #99999977;
   height: 60vh;
   /* margin-top: 3.5rem; */
   flex-direction: column;
   display: flex;
+
   background-color: #ffffff77;
   backdrop-filter: blur(0.5rem);
   justify-content: space-evenly;
@@ -404,3 +443,18 @@ main {
     flex-wrap: nowrap;
 }
 
+/* cart page styles */
+
+
+
+/* search styles */
+
+
+/*author page styles*/
+.author h1{
+  text-align: center;
+  color: white;
+}
+.author  img{
+  max-width: 220px;
+}
