@@ -1,10 +1,11 @@
 const router = require('express').Router();
+const fs = require('fs');
 const { Book, User, UserFavorite, UserWishlist } = require('../models');
 const withAuth = require("../utils/auth")
 
 
-// GET user homepage
-router.get('/',withAuth, async (req, res) => {
+// GET default homepage
+router.get('/', async (req, res) => {
   try {
     res.render('homepage');
   } catch (err) {
@@ -22,6 +23,7 @@ router.get('/search', async (req, res) => {
   }
 });
 
+// GET all authors in the database with the titles of each of their books.
 router.get('/author', async (req, res) => {
   try {
     const dbAuthorData = await Book.findAll({
@@ -40,8 +42,16 @@ router.get('/author', async (req, res) => {
   }
 });
 
+// GET all books.
 router.get('/book', async (req, res) => {
   try {
+    const dbBooksData = await Book.findAll();
+    const allBooks = dbBooksData.map((genre) =>
+      genre.get({ plain: true })
+    );
+
+    console.log(allBooks);
+
     res.render('book');
   } catch (err) {
     console.log(err);
@@ -58,6 +68,7 @@ router.get('/cart', async (req, res) => {
   }
 });
 
+// GET all books by genre.
 router.get('/genre', async (req, res) => {
   try {
     const dbGenreData = await Book.findAll({
@@ -76,6 +87,7 @@ router.get('/genre', async (req, res) => {
   }
 });
 
+// GET all books by series.
 router.get('/series', async (req, res) => {
   try {
     const dbSeriesData = await Book.findAll({
@@ -103,20 +115,24 @@ router.get('/userHome', async (req, res) => {
   }
 });
 
+// GET a specific book by id.
 router.get('/book/:id', async (req, res) => {
   try {
     const dbBookData = await Book.findByPk(req.params.id);
 
-    const dbFavorite = await Book.findAll({
-      include: [{
-        model: User,
-        through: UserFavorite,
-      }]
-    });
+    // const dbFavorite = await Book.findAll({
+    //   include: [{
+    //     model: User,
+    //     through: UserFavorite,
+    //   }]
+    // });
 
-    console.log(dbFavorite);
+    // console.log(dbFavorite);
 
     const books = dbBookData.get({ plain: true });
+    // console.log(books);
+
+    // res.json(books);
 
     res.render('book', {
       books
@@ -126,6 +142,32 @@ router.get('/book/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/favoritebooks', async (req, res) => {
+  try {
+    const dbBooksData = await Book.findAll({
+      include: [{
+        model: User,
+        // through: UserFavorite,
+      }],
+      where: {
+        user_id: req.session.user_id
+      }
+    });
+    const allBooks = dbBooksData.map((genre) =>
+      genre.get({ plain: true })
+    );
+
+    // console.log(allBooks);
+    res.json(allBooks);
+
+    // res.render('book', allBooks);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 // GET one book
 // Use the custom middleware before allowing the user to access the book
