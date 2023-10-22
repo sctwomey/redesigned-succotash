@@ -2,8 +2,8 @@ const { Purchase } = require('../models');
 
 const purchasedata = [
     {
-        user_id: 1,
-        purchase_id: 2,
+        user_id: 2,
+        purchase_id: 3,
     }
 ];
 

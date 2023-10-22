@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.user_id = 3;
+      // req.session.user_id = 3;
 
       res.status(200).json(dbUserData);
     });

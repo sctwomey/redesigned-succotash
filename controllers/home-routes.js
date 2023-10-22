@@ -137,17 +137,14 @@ router.get('/favoritebooks', async (req, res) => {
       include: [{
         model: User,
         through: Favorite,
-      }],
-      // where: {
-      //   user_id: req.params.user_id // Once able to login - req.session.user_id
-      // }
+      }]
     });
-    const allBooks = dbBooksData.map((genre) =>
-      genre.get({ plain: true })
+    const allFavorites = dbBooksData.map((favorite) =>
+      favorite.get({ plain: true })
     );
 
     // console.log(allBooks);
-    res.json(allBooks);
+    res.json(allFavorites);
 
     // res.render('book', allBooks);
   } catch (err) {

@@ -2,7 +2,7 @@ const { UserWishlist } = require('../models');
 
 const wishlistdata = [
     {
-        user_id: 1,
+        user_id: 2,
         wishlist_id: 2,
     }
 ];

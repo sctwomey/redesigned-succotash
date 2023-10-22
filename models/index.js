@@ -4,13 +4,13 @@ const Favorite = require('./Favorite');
 const Wishlist = require('./Wishlist');
 const Purchase = require('./Purchase');
 
-User.hasMany(Book, {
-  foreignKey: 'user_id',
-});
+// User.hasMany(Book, {
+//   foreignKey: 'user_id',
+// });
 
-Book.belongsTo(User, {
-  foreignKey: 'user_id',
-});
+// Book.belongsTo(User, {
+//   foreignKey: 'user_id',
+// });
 
 Book.belongsToMany(User, {
   through: Favorite,
