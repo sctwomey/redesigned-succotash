@@ -12,7 +12,7 @@ const bookdata = [
     price: '7.99',
     quantity: '25',
     condition_new: true,
-    image: "bookfilehere.jpg",
+    image: "hp_stone.jpg",
   },
   {
     title: 'Harry Potter and the Chamber of Secrets',
@@ -24,7 +24,8 @@ const bookdata = [
     series: 'Harry Potter',
     price: '7.99',
     quantity: '18',
-    condition_new: true
+    condition_new: true,
+    image: "hp_chamber.jpg",
   },
   {
     title: 'Harry Potter and the Prisoner of Azkaban',
@@ -36,7 +37,8 @@ const bookdata = [
     series: 'Harry Potter',
     price: '7.99',
     quantity: '32',
-    condition_new: true
+    condition_new: true,
+    image: "hp_pris.jpg",
   },
   {
     title: 'Harry Potter and the Goblet of Fire',
