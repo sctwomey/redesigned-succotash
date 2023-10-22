@@ -1,31 +1,39 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class UserWishlist extends Model { }
+class Favorite extends Model { }
 
-UserWishlist.init(
+Favorite.init(
     {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id',
+                unique: false
             },
         },
-        favorite_id: {
+        book_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'book',
                 key: 'id',
+                unique: false
             },
         }
     },
     {
         sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user_wishlist'
-    }
-);
+        modelName: 'favorite'
+    });
 
-module.exports = UserWishlist;
+module.exports = Favorite;

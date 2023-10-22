@@ -1,8 +1,8 @@
 const User = require('./User');
 const Book = require('./Book');
-const UserFavorite = require('./UserFavorite');
-const UserWishlist = require('./UserWishlist');
-const UserPurchase = require('./UserPurchase');
+const Favorite = require('./Favorite');
+const Wishlist = require('./Wishlist');
+const Purchase = require('./Purchase');
 
 User.hasMany(Book, {
   foreignKey: 'user_id',
@@ -13,22 +13,27 @@ Book.belongsTo(User, {
 });
 
 Book.belongsToMany(User, {
-  through: UserFavorite,
+  through: Favorite,
   foreignKey: 'favorite_id',
 });
 
 User.belongsToMany(Book, {
-  through: UserFavorite,
-  foreignKey: 'user_id',
+  through: Favorite,
+  foreignKey: 'favorite_id',
 });
 
 // Book.belongsToMany(User, {
-//   through: UserWishlist,
+//   through: Wishlist,
 //   foreignKey: 'wishlist_id'
 // });
 
+// User.belongsToMany(Book, {
+//   through: Wishlist,
+//   foreignKey: 'user_id',
+// });
+
 // Book.belongsToMany(User, {
-//   through: UserPurchase,
+//   through: Purchase,
 //   foreignKey: 'purchase_id'
 // });
 

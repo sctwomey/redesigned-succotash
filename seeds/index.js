@@ -1,18 +1,18 @@
 const sequelize = require('../config/connection');
 const seedBook = require('./bookData');
 const seedUser = require('./userData');
-const seedFavoriteBook = require('./userFavoriteData');
-const seedPurchaseBook = require('./userPurchaseData');
-const seedWishlistBook = require('./userWishlistData');
+const seedFavoriteBook = require('./favoriteData');
+const seedPurchaseBook = require('./purchaseData');
+const seedWishlistBook = require('./wishlistData');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-  // await seedUser();
+  await seedUser();
 
   await seedBook();
 
-  // await seedFavoriteBook();
+  await seedFavoriteBook();
 
   // await seedPurchaseBook();
 
