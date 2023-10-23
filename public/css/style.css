@@ -409,7 +409,7 @@ main {
 
 .regInput {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   /* align-items: baseline; */
   gap: .2rem;
   margin: .2rem;
