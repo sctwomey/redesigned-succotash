@@ -200,6 +200,103 @@ router.get('/purchasebooks', async (req, res) => {
   }
 });
 
+router.post('/addfavorite', async (req, res) => {
+  try {
+    const favoriteData = await Favorite.create({
+      user_id: req.body.user_id,
+      book_id: req.body.book_id
+    });
+    res.status(200).json(favoriteData)
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/addwishlist', async (req, res) => {
+  try {
+    const wishlistData = await Wishlist.create({
+      user_id: req.body.user_id,
+      book_id: req.body.book_id
+    });
+    res.status(200).json(wishlistData)
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/addpurchase', async (req, res) => {
+  try {
+    const purchaseData = await Purchase.create({
+      user_id: req.body.user_id,
+      book_id: req.body.book_id
+    });
+    res.status(200).json(purchaseData)
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.delete('/removefavorite/:id', async (req, res) => {
+  try {
+    const favoriteData = await Favorite.destroy({
+      where: {
+        id: req.params.id,
+        // user_id: req.session.user_id,
+      },
+    });
+
+    if (!favoriteData) {
+      res.status(404).json({ message: 'No Favorites item found with this id!' });
+      return;
+    };
+
+    res.status(200).json(favoriteData);
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
+
+router.delete('/removewishlist/:id', async (req, res) => {
+  try {
+    const wishlistData = await Wishlist.destroy({
+      where: {
+        id: req.params.id,
+        // user_id: req.session.user_id,
+      },
+    });
+
+    if (!wishlistData) {
+      res.status(404).json({ message: 'No Wishlist item found with this id!' });
+      return;
+    };
+
+    res.status(200).json(wishlistData);
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
+
+router.delete('/removepurchase/:id', async (req, res) => {
+  try {
+    const purchaseData = await Purchase.destroy({
+      where: {
+        id: req.params.id,
+        // user_id: req.session.user_id,
+      },
+    });
+
+    if (!purchaseData) {
+      res.status(404).json({ message: 'No Purchase item found with this id!' });
+      return;
+    };
+
+    res.status(200).json(purchaseData);
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
+
+
 // GET one book
 // Use the custom middleware before allowing the user to access the book
 // router.get('/book/:id', withAuth, async (req, res) => {
