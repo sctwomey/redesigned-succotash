@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const fs = require('fs');
-const { Book, User, Favorite, Wishlist } = require('../models');
+const { Book, User, Favorite, Wishlist, Purchase } = require('../models');
 const withAuth = require("../utils/auth")
 
 
@@ -133,31 +133,19 @@ router.get('/book/:id', async (req, res) => {
 
 router.get('/favoritebooks', async (req, res) => {
   try {
-    // const dbFavoriteData = await Favorite.findAll({
-    //   include: [{
-    //     model: User,
-    //     required: true
-    //   }, {
-    //     model: Book,
-    //     required: true
-    //   }]
-    // })
-
-    // console.log(dbFavoriteData);
-
-    const dbBooksData = await User.findByPk(1, {
+    const dbFavoritesData = await User.findAll({
       include: [{
         model: Book,
         through: Favorite,
       }],
-      // where: {
-      //   id: 1
-      // },
-      // attributes: ['username']
+      where: {
+        id: 1
+      },
+      attributes: ['username']
     });
 
     // console.log(allBooks);
-    res.json(dbBooksData);
+    res.json(dbFavoritesData);
 
     // res.render('book', allBooks);
   } catch (err) {
@@ -168,16 +156,19 @@ router.get('/favoritebooks', async (req, res) => {
 
 router.get('/wishlistbooks', async (req, res) => {
   try {
-    const dbBooksData = await Book.findAll({
+    const dbWishlistData = await User.findAll({
       include: [{
-        model: User,
+        model: Book,
         through: Wishlist,
       }],
-      attributes: ['title', 'author', 'price']
+      where: {
+        id: 2
+      },
+      attributes: ['username']
     });
 
     // console.log(allBooks);
-    res.json(dbBooksData);
+    res.json(dbWishlistData);
 
     // res.render('book', allBooks);
   } catch (err) {
@@ -186,6 +177,28 @@ router.get('/wishlistbooks', async (req, res) => {
   }
 });
 
+router.get('/purchasebooks', async (req, res) => {
+  try {
+    const dbPurchaseData = await User.findAll({
+      include: [{
+        model: Book,
+        through: Purchase,
+      }],
+      where: {
+        id: 3
+      },
+      attributes: ['username']
+    });
+
+    // console.log(allBooks);
+    res.json(dbPurchaseData);
+
+    // res.render('book', allBooks);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // GET one book
 // Use the custom middleware before allowing the user to access the book

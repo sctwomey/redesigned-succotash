@@ -1,4 +1,4 @@
-const { Book, User } = require('../models');
+const { Book } = require('../models');
 
 const bookdata = [
   {
@@ -69,36 +69,3 @@ const bookdata = [
 const seedBook = () => Book.bulkCreate(bookdata);
 
 module.exports = seedBook;
-
-
-// const userdata = [
-//   {
-//     username: 'Mike',
-//     email: 'mike@email.com',
-//     password: 'password'
-//   },
-//   {
-//     username: 'Caren',
-//     email: 'mcaren@email.com',
-//     password: 'password'
-//   },
-//   {
-//     username: 'suysan',
-//     email: 'suysan@email.com',
-//     password: 'password'
-//   }
-// ];
-
-
-// const seedBook = async () => {
-//   const users = await User.bulkCreate(userdata);
-
-//   for (const book of bookdata) {
-//     await Book.create({
-//       ...book,
-//       user_id: users[Math.floor(Math.random() * users.length)].id,
-//     });
-//   };
-// };
-
-// module.exports = seedBook;

@@ -2,8 +2,9 @@ const sequelize = require('../config/connection');
 const seedBook = require('../seeds/bookData');
 const seedUser = require('../seeds/userData');
 const seedFavoriteBook = require('../seeds/favoriteData');
-const seedPurchaseBook = require('../seeds/purchaseData');
 const seedWishlistBook = require('../seeds/wishlistData');
+const seedPurchaseBook = require('../seeds/purchaseData');
+
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -14,9 +15,9 @@ const seedAll = async () => {
 
   await seedFavoriteBook();
 
-  // await seedWishlistBook();
+  await seedWishlistBook();
 
-  // await seedPurchaseBook();
+  await seedPurchaseBook();
 
   process.exit(0);
 };
