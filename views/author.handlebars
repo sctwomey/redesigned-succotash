@@ -4,15 +4,12 @@
 
 <div class="product-row">
     {{#each bookList}}
-
-    <div class="product-card">
-        <h4>{{title}}</h4>
-        {{#if image}}
-        <img src="/images/{{image}}"/>
-        {{/if}}
-        
-    </div>
-
+        <div class="product-card">
+            <h4>{{title}}</h4>
+            {{#if image}}
+            <img src="/images/{{image}}"/>
+            {{/if}}  
+        </div>
     {{/each}}
 </div>
 </div>
