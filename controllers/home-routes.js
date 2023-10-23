@@ -157,7 +157,8 @@ router.get('/wishlistbooks', async (req, res) => {
       include: [{
         model: User,
         through: Wishlist,
-      }]
+      }],
+      attributes: ['title', 'author', 'price']
     });
 
     // console.log(allBooks);
