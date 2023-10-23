@@ -1,47 +1,51 @@
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/jass.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/script.js" defer></script>
-    <script src="/js/header.js" defer></script>
-    <title>Scribble-Prose</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/jass.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <title>Scribble-Prose</title>
+</head>
 
-  <body>
-    <header>
+<body class="display-flex flex-column">
+  <header class="display-flex w-100">
+    <div class="row w-100">
 
-      <p id="logo">Scribble-Prose</p>
+      <div id="logo" class="col-3 display-flex justify-flex-start align-center"><a style="text-decoration:none"
+          class="text-dark" href="/" class="ml-2">Scribble-Prose</a></div>
 
-      <div id="searchContainer">
-        <input
-          type="text"
-          name="Search"
-          id="searchinput"
-          placeholder="Search"
-        />
+      <div id="searchContainer" class="col-6 mt-1">
+        <input type="text" name="Search" id="searchinput" placeholder="Search" />
         <button onclick="performSearch()" id="searchbtn">search</button>
       </div>
 
-      <div id="btnContainer">
+
+      <div id="btnContainer" class="col-3">
 
         {{#if logged_in}}
-          <h4>Hello, {{user.username}} </h4>
-          <button id="cart"><a href="/cart">Cart</a></button>
-          <button class="btn" id="/logout">logout</button>
+        <h4>Hello, {{user.username}} </h4>
+        <button id="cart"><a href="/cart">Cart</a></button>
+        <button class="btn" id="/logout">logout</button>
         {{else}}
+
+
           <button id="login"><a href="/login">Register</a></button>
+
         {{/if}}
       </div>
 
-    </header>
+    </div>
 
+  </header>
+
+
+  <div class="content">
     {{{body}}}
+  </div>
 
-  
-
-  </body>
+</body>
 
 </html>

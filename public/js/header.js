@@ -48,8 +48,16 @@ function doSearch(value) {
             //inject the cards in the dom in product-row
             document.querySelector('.product-row').innerHTML = cardsAsHtmlString
 
+            registerAddToCartClickListener()
+
+            hideHomePageDeck()
+
         })
         .catch(error => console.error(error))
+}
+
+function hideHomePageDeck() {
+    document.querySelector('#homepageDeck').setAttribute('style', 'display:none')
 }
 
 function makeBookCard( /** @type {Book} */ book) {
