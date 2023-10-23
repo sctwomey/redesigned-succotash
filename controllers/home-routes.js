@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const fs = require('fs');
-const { Book, User, Favorite, Wishlist, Purchase } = require('../models');
+const { Book, User, Favorite } = require('../models');
 const withAuth = require("../utils/auth")
 
 
