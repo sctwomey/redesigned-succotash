@@ -5,6 +5,12 @@ class Wishlist extends Model { }
 
 Wishlist.init(
     {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -22,6 +28,7 @@ Wishlist.init(
     },
     {
         sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'wishlist'

@@ -14,12 +14,12 @@ const Purchase = require('./Purchase');
 
 Book.belongsToMany(User, {
   through: Favorite,
-  foreignKey: 'favorite_id',
+  foreignKey: 'favorite_id'
 });
 
 User.belongsToMany(Book, {
   through: Favorite,
-  foreignKey: 'favorite_id',
+  foreignKey: 'favorite_id'
 });
 
 // Book.belongsToMany(User, {
@@ -29,12 +29,17 @@ User.belongsToMany(Book, {
 
 // User.belongsToMany(Book, {
 //   through: Wishlist,
-//   foreignKey: 'user_id',
+//   foreignKey: 'wishlist_id',
 // });
 
 // Book.belongsToMany(User, {
 //   through: Purchase,
 //   foreignKey: 'purchase_id'
+// });
+
+// User.belongsToMany(Book, {
+//   through: Purchase,
+//   foreignKey: 'purchase_id',
 // });
 
 module.exports = { User, Book, Favorite, Purchase, Wishlist };

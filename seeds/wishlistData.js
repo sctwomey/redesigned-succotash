@@ -1,12 +1,13 @@
-const { UserWishlist } = require('../models');
+const { Wishlist } = require('../models');
 
 const wishlistdata = [
     {
         user_id: 2,
+        book_id: 4,
         wishlist_id: 2,
     }
 ];
 
-const seedWishlistBook = () => UserWishlist.bulkCreate(wishlistdata, { fields: ['user_id', 'wishlist_id'] });
+const seedWishlistBook = () => Wishlist.bulkCreate(wishlistdata, { fields: ['user_id', 'book_id', 'wishlist_id'] });
 
 module.exports = seedWishlistBook;

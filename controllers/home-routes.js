@@ -14,14 +14,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/search', async (req, res) => {
-  try {
-    res.render('search');
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// router.get('/search', async (req, res) => {
+//   try {
+//     res.render('search');
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 // GET all authors in the database with the titles of each of their books.
 router.get('/author', async (req, res) => {
@@ -137,14 +137,31 @@ router.get('/favoritebooks', async (req, res) => {
       include: [{
         model: User,
         through: Favorite,
-      }]
+      }],
+      attributes: ['title', 'author', 'price']
     });
-    const allFavorites = dbBooksData.map((favorite) =>
-      favorite.get({ plain: true })
-    );
 
     // console.log(allBooks);
-    res.json(allFavorites);
+    res.json(dbBooksData);
+
+    // res.render('book', allBooks);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/wishlistbooks', async (req, res) => {
+  try {
+    const dbBooksData = await Book.findAll({
+      include: [{
+        model: User,
+        through: Wishlist,
+      }]
+    });
+
+    // console.log(allBooks);
+    res.json(allWishlists);
 
     // res.render('book', allBooks);
   } catch (err) {
@@ -227,7 +244,7 @@ router.get('/favoritebooks', async (req, res) => {
 router.get('/author/:author', async (req, res) => {
   let author = decodeURI(req.params.author);
   let books = await Book.findAll({
-    where:{
+    where: {
       author: author
     },
     raw: true
@@ -239,7 +256,7 @@ router.get('/author/:author', async (req, res) => {
     author: author,
     bookList: books
   })
-   
+
 
 
 });
