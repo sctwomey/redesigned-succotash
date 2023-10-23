@@ -548,3 +548,9 @@ main {
   background-color: #99999977;
   color: white;
 }
+
+#logo{
+  font-size: 2rem;
+  font-weight: 500;
+  margin-left: 1rem;
+}
