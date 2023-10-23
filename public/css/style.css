@@ -351,9 +351,10 @@ main {
 .loginReg {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-content: center;
-  margin-top: 8vh;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  
 }
 
 .loginInput {
@@ -404,7 +405,11 @@ main {
 
 .regInput {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  /* align-items: baseline; */
+  gap: .2rem;
+  margin: .2rem;
+ 
 }
 
 .regInput > input {
@@ -479,4 +484,34 @@ main {
   border-left: 1px solid black;
   padding: .1rem;
 
+}
+
+.user_info{
+  width: 20vw;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.user_info>p{
+  align-self: center;
+  font-weight: 700;
+}
+
+.shipping_info{
+  width: 20vw;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.shipping_info>p{
+  align-self: center;
+  font-weight: 700;
+}
+
+#registerbtn{
+  width: 20vw;
+  align-self: center;
+  padding: .25rem;
 }
