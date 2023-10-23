@@ -271,9 +271,6 @@ main {
   align-self: center;
 }
 
-.Search {
-}
-
 .cardDeck {
   display: flex;
   flex-direction: row;
@@ -519,4 +516,34 @@ main {
   width: 20vw;
   align-self: center;
   padding: .25rem;
+}
+
+#login {
+  border-radius: .25rem;
+  border: none;
+}
+
+#login>a {
+  text-decoration: none;
+  color: black;
+}
+
+#login:hover{
+  
+  box-shadow: 0 2px 5px 1px #333;
+  background-color: #99999977;
+  color: white;
+}
+
+#searchbtn:hover{
+  box-shadow: 0 2px 5px 1px #333;
+  background-color: #99999977;
+  color: white;
+}
+
+#registerbtn:hover{
+  
+  box-shadow: 0 2px 5px 1px #333;
+  background-color: #99999977;
+  color: white;
 }
