@@ -1,39 +1,47 @@
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/jass.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <script src="/js/script.js" defer></script>
-
+    <script src="/js/header.js" defer></script>
     <title>Scribble-Prose</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
 
-        <p id="logo">Book-A-Zon</p>
-        <input type="text" name="Search" id="searchinput" placeholder="Search" />
-        <button onclick="performSearch()">search</button>
-        <div id="btnContainer">
-            <button id="cart"><a href="cart">Cart</a></button>
-            {{#if logged_in}}
-            <h4>Hello, {{user.username}} </h4>
-            <button class="btn" id="logout">logout</button>
-            {{else}}
-            <button id="login"><a href="/Login">Login</a></button>
-            {{/if}}
-        </div>
+      <p id="logo">Scribble-Prose</p>
+
+      <div id="searchContainer">
+        <input
+          type="text"
+          name="Search"
+          id="searchinput"
+          placeholder="Search"
+        />
+        <button onclick="performSearch()" id="searchbtn">search</button>
+      </div>
+
+      <div id="btnContainer">
+
+        {{#if logged_in}}
+          <h4>Hello, {{user.username}} </h4>
+          <button id="cart"><a href="/cart">Cart</a></button>
+          <button class="btn" id="/logout">logout</button>
+        {{else}}
+          <button id="login"><a href="/login">Login</a></button>
+        {{/if}}
+      </div>
 
     </header>
 
-
     {{{body}}}
 
-    <script src="/js/login.js" defer></script>
-    <script src="/js/header.js"></script>
+  
 
-</body>
+  </body>
 
 </html>
