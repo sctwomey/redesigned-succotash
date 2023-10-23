@@ -13,13 +13,17 @@ const Purchase = require('./Purchase');
 // });
 
 Book.belongsToMany(User, {
-  through: Favorite,
-  foreignKey: 'favorite_id'
+  through: {
+    model: Favorite,
+    unique: false
+  },
 });
 
 User.belongsToMany(Book, {
-  through: Favorite,
-  foreignKey: 'favorite_id'
+  through: {
+    model: Favorite,
+    unique: false
+  },
 });
 
 // Book.belongsToMany(User, {
@@ -42,4 +46,4 @@ User.belongsToMany(Book, {
 //   foreignKey: 'purchase_id',
 // });
 
-module.exports = { User, Book, Favorite, Purchase, Wishlist };
+module.exports = { User, Book, Favorite };

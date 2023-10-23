@@ -133,12 +133,27 @@ router.get('/book/:id', async (req, res) => {
 
 router.get('/favoritebooks', async (req, res) => {
   try {
-    const dbBooksData = await Book.findAll({
+    // const dbFavoriteData = await Favorite.findAll({
+    //   include: [{
+    //     model: User,
+    //     required: true
+    //   }, {
+    //     model: Book,
+    //     required: true
+    //   }]
+    // })
+
+    // console.log(dbFavoriteData);
+
+    const dbBooksData = await User.findByPk(1, {
       include: [{
-        model: User,
+        model: Book,
         through: Favorite,
       }],
-      attributes: ['title', 'author', 'price']
+      // where: {
+      //   id: 1
+      // },
+      // attributes: ['username']
     });
 
     // console.log(allBooks);
