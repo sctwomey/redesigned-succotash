@@ -131,74 +131,33 @@ router.get('/book/:id', async (req, res) => {
   }
 });
 
-router.get('/favoritebooks', async (req, res) => {
-  try {
-    const dbFavoritesData = await User.findAll({
-      include: [{
-        model: Book,
-        through: Favorite,
-      }],
-      where: {
-        id: 1
-      },
-      attributes: ['username']
-    });
+// router.get('/favoritebooks', async (req, res) => {
+//   try {
+//     const dbFavoritesData = await User.findAll({
+//       include: [{
+//         model: Book,
+//         through: Favorite,
+//       }],
+//       where: {
+//         id: 1
+//       },
+//       attributes: ['username']
+//     });
 
-    // console.log(allBooks);
-    res.json(dbFavoritesData);
+//     // console.log(allBooks);
+//     res.json(dbFavoritesData);
 
-    // res.render('book', allBooks);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     // res.render('book', allBooks);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-router.get('/wishlistbooks', async (req, res) => {
-  try {
-    const dbWishlistData = await User.findAll({
-      include: [{
-        model: Book,
-        through: Wishlist,
-      }],
-      where: {
-        id: 2
-      },
-      attributes: ['username']
-    });
 
-    // console.log(allBooks);
-    res.json(dbWishlistData);
 
-    // res.render('book', allBooks);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
-router.get('/purchasebooks', async (req, res) => {
-  try {
-    const dbPurchaseData = await User.findAll({
-      include: [{
-        model: Book,
-        through: Purchase,
-      }],
-      where: {
-        id: 3
-      },
-      attributes: ['username']
-    });
 
-    // console.log(allBooks);
-    res.json(dbPurchaseData);
-
-    // res.render('book', allBooks);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 // GET one book
 // Use the custom middleware before allowing the user to access the book
