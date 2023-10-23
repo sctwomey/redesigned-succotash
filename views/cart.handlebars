@@ -1,53 +1,198 @@
-<div class="wrapper">
-<div id="displayCart">
-    <div id="cartContent"></div>
-    <hr>
-    <div id="total">
-    
+<div class="wrapper row mt-5 p-3 px-5">
+
+
+    <div id="checkout-container" class="row">
+
+        <form id="checkoutForm" class="col-8 display-flex flex-row bg-white">
+            <h2 class="text-white w-100">Checkout</h2>
+
+            <div class="dispay-flex flex-column   w-50">
+                <legend class="">Shipping information</legend>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">First name</label>
+                    <input name="first_name" type="text" class="w-50">
+                </div>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">last name</label>
+                    <input name="last_name" type="text" class="w-50">
+                </div>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">Street address</label>
+                    <input name="street_address" type="text" class="w-50">
+                </div>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">City</label>
+                    <input name="city" type="text" class="w-50">
+                </div>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">State</label>
+                    <input name="state" type="text" class="w-50">
+                </div>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">Zip</label>
+                    <input name="zip" type="text" class="w-50">
+                </div>
+            </div>
+
+            <div class="display-flex flex-column w-50">
+                <legend>Billing informattion</legend>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">Name on card</label>
+                    <input name="name_on_card" type="text" class="w-50">
+                </div>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">Card number</label>
+                    <input name="card_number" type="text" class="w-50">
+                </div>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">cvv</label>
+                    <input name="cvv" type="text" class="w-50">
+                </div>
+                <div class="formgroup display-flex justify-space-between my-2">
+                    <label for="">Card type</label>
+                    <label for="master-card">
+                        master card
+                        <input id="master-card" class="w-50" type="radio" value="master-card" name="card_type">
+                    </label>
+                    <label for="visa-card">
+                        visa card
+                        <input id="visa-card" class="w-50" type="radio" value="visa-card" name="card_type">
+                    </label>
+                    <label for="discover-card">
+                        discover card
+                        <input id="discover-card" class="w-50" type="radio" value="discover-card" name="card_type">
+                    </label>
+                </div>
+                <button type="submit" class="btn">checkout</button>
+            </div>
+
+        </form>
+
+        <div id="displayCart" class="col-4">
+            <div id="cartContent"></div>
+            <hr>
+            <div id="total">
+
+            </div>
+
+        </div>
     </div>
 
-</div>
-</div>
+    <div id="checkout-success-container" style="min-height:400px" class="col-6 m-auto hide bg-white">
+        <h3>Checkout complete</h3>
+
+        {{!-- purchased items --}}
+        {{!-- name quant unit total --}}
+        <span>Purchased items</span>
+        <ul class="display-flex flex-column" id="checkout-success-items"></ul>
 
 
+        {{!-- billing info --}}
+        {{!-- card ending --}}
+        <span>Billing info</span>
+        <ul class="display-flex flex-column" id="checkout-success-billing"></ul>
+
+
+        {{!-- shipping info --}}
+        {{!-- street city state zip --}}
+        <span>Shipping info</span>
+        <ul class="display-flex flex-column" id="checkout-success-shipping"></ul>
+    </div>
+</div>
 
 
 <script>
     let myCart = localStorage.getItem("cart");
     let myCartList = JSON.parse(myCart);
 
-    let displayEl = document.querySelector("#cartContent");
-    let total = 0;
+    function renderCart(myCartList) {
 
-    console.log(myCartList);
+        let displayEl = document.querySelector("#cartContent");
 
-    for(let i =0; i< myCartList.length ; i++){
-        let {id, name, price} = myCartList[i];
-        let divEl = document.createElement("div");
-        divEl.classList.add("cart_row");
-        divEl.innerHTML = `<span>${name}</span> <span>$${price}</span>`
-        displayEl.appendChild(divEl);
+        console.log(myCartList);
+        const items = myCartList.map(({ price, name, quantity }, index) => `
+            <div class="cart_row row">
+                <div class="display-flex col-12">
+                    <span>${name}</span> 
+                    <span>${quantity}</span>
+                    <span>$${price}</span>
+                </div>
 
-        total += Number(price);
+                <div class="display-flex col-12">
+                    <span class="col-8">
+                        <button class="btn btn-lg" onclick="addOrRemoveInstance(${index},'remove')">-</button>
+                        <button class="btn btn-lg" onclick="addOrRemoveInstance(${index},'add')">+</button>
+                        <input type="number" readonly value='${quantity}'>
+                    </span>
+                    <span class="col-4"><button class="btn btn-lg" onclick="deleteCartItem(${index})">x</button></span>
+                </div>
+
+            </div>
+    `).join('')
+
+        displayEl.innerHTML = myCartList.length ? items : '<span>cart is empty, <a href="/">continue shopping</a>'
+        const total = myCartList.reduce((acc, item) => acc += parseInt(item.price * item.quantity), 0)
+
+        let totalEl = document.querySelector("#total");
+        totalEl.innerHTML = `<span>$ ${total}</span>`
     }
 
-     let totalEl = document.querySelector("#total");
-     totalEl.innerHTML = `<span>$ ${total}</span>`;
+    function deleteCartItem(index) {
+        myCartList.splice(index, 1);
+        getOrUpdateCart(myCartList)
+        renderCart(myCartList)
+    }
+
+    function addOrRemoveInstance(index, action) {
+
+        switch (action) {
+            case 'add': {
+                myCartList[index].quantity += 1;
+                break;
+            }
+            case 'remove': {
+                myCartList[index].quantity -= 1;
+                if (myCartList[index].quantity === 0) {
+                    myCartList.splice(index, 1)
+                }
+            }
+        }
+
+        getOrUpdateCart(myCartList)
+        renderCart(myCartList)
+
+    }
+
+    function completeCheckout($event) {
+        $event.preventDefault();//stop the page from reloading
+        //hide the forms
+        document.querySelector('#checkout-container').classList.add('hide')
+        //show success message with optional billing info/receipt
+        document.querySelector('#checkout-success-container').classList.remove('hide')
+
+        const items = myCartList.map(item => ` <li><span>${item.name}: </span>
+                            <span>${item.quantity}</span>
+                            <span>$${item.price}</span>
+                            <span>total: $${item.price * item.quantity}</span></li>`).join('')
+
+        const form = $event.target.elements
+        const shipping = ` <span>${form.street_address.value}</span>
+                            <span>${form.city.value}</span>
+                            <span>${form.state.value}</span>
+                            <span>${form.zip.value}</span>`
+
+        setElementInnerHtml('#checkout-success-items', items)
+        setElementInnerHtml('#checkout-success-billing', 'xxxx-xxxx-'+form.card_number.value.substring(form.card_number.value.length - 5, form.card_number.value.length - 1))
+        setElementInnerHtml('#checkout-success-shipping', shipping)
+
+    }
+
+    function setElementInnerHtml(selector, content) {
+        document.querySelector(selector).innerHTML = content
+    }
+
+    renderCart(myCartList)
+    document.querySelector('#checkoutForm').addEventListener('submit', completeCheckout)
+
+
 </script>
-     <label for="">firstname</label>
-    <input type="text" name="first_name">
-        <label for="">lastname</label>
-    <input type="text" name="last_name">
-    <label for="">email</label>
-    <input type="text" name="email">
-    <label for="">password</label>
-    <input type="text" name="password">
-    <label for="">address</label>
-    <input type="text" name="address">
-    <label for="">city</label>
-    <input type="text" name="city">
-    <label for="">zipcode</label>
-    <input type="text" name="zip">
-    <label for="">state</label>
-    <input type="text" name="state">
-    <input type="submit" value="Sign Up">

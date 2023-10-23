@@ -2,18 +2,21 @@
   padding: 0%;
   margin: 0%;
 }
+body,html{
+  width: 100%;
+}
 
 header {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   height: 8vh;
   /* background-color: rgba(129, 136, 150, 0.664); */
   justify-content: space-between;
   align-content: center;
   /* box-shadow: 0 1px 5px 1px #999; */
   z-index: 2;
-  position: fixed;
+  position: sticky;
   top: 0;
   background-color: #ffffff77;
   backdrop-filter: blur(0.5rem);
@@ -387,7 +390,6 @@ main {
 }
 
 #displayCart{
-  margin-top: 100px;
   background-color: white;;
   width: 100%;
   max-width: 600px;
@@ -472,7 +474,6 @@ main {
   align-items: center;
   height: 5vh;
   flex: 1 1 60%;
-  margin-top: 1rem;
   border-radius: .25rem;
 
 } 
