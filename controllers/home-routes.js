@@ -161,7 +161,7 @@ router.get('/wishlistbooks', async (req, res) => {
     });
 
     // console.log(allBooks);
-    res.json(allWishlists);
+    res.json(dbBooksData);
 
     // res.render('book', allBooks);
   } catch (err) {
