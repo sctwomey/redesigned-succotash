@@ -35,7 +35,7 @@ function doSearch(value) {
     fetch('/api/books/search?q=' + searchValue)
         .then(res => res.json())
         //get the results
-        .then((/** @type {Books[]}*/ res) => {
+        .then((/** @type {Book[]}*/ res) => {
             //show the results in a drop down that can be clicked
             console.log(res)
 
