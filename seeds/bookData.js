@@ -71,7 +71,7 @@ const bookdata = [
     description: 'Reality is broken. At first, it looks like a disease.An epidemic that spreads through no known means, driving its victims mad with memories of a life they never lived.But the force that\'s sweeping the world is no pathogen.It\'s just the first shock wave, unleashed by a stunning discovery—and what\'s in jeopardy is not our minds but the very fabric of time itself.',
     isbn: '1524759791',
     genre: 'Science Fiction',
-    series: NULL,
+    series: null,
     price: '11.99',
     quantity: '12',
     condition_new: true
@@ -83,7 +83,7 @@ const bookdata = [
     description: 'In retreat from a devastating loss and crushing injustice, Katie lives alone in a fortresslike stone house on Jacob\'s Ladder island. Once a rising star in the art world, she finds refuge in her painting.',
     isbn: '1662508077',
     genre: 'Science Fiction',
-    series: NULL,
+    series: null,
     price: '12.00',
     quantity: '19',
     condition_new: true
@@ -95,7 +95,7 @@ const bookdata = [
     description: 'Oliver Scott is the reclusive genius behind countless world-changing breakthroughs. But how does he innovate at such a furious pace? And while most hail him as a savior, what if he\'s actually the most dangerous tyrant humanity has ever seen? A man who will stop at nothing to gain absolute power.',
     isbn: '979-8859904433',
     genre: 'Science Fiction',
-    series: NULL,
+    series: null,
     price: '18.00',
     quantity: '17',
     condition_new: true
@@ -107,7 +107,7 @@ const bookdata = [
     description: 'One morning, Dr. Sam Anderson wakes up to find that the woman he loves has been murdered. For Sam, the horror is only beginning. He and his daughter are accused of the crime. The evidence is ironclad. They will be convicted. And so, to ensure his daughter goes free, Sam does what he must: he confesses. But in the future, murderers aren\'t sent to prison.',
     isbn: '1804541788',
     genre: 'Science Fiction',
-    series: NULL,
+    series: null,
     price: '17.00',
     quantity: '27',
     condition_new: true
@@ -131,7 +131,7 @@ const bookdata = [
     description: 'Mallory Quinn is fresh out of rehab when she takes a job as a babysitter for Ted and Caroline Maxwell. She is to look after their five-year-old son, Teddy. Mallory immediately loves it. She has her own living space, goes out for nightly runs, and has the stability she craves. And she sincerely bonds with Teddy, a sweet, shy boy who is never without his sketchbook and pencil. His drawings are the usual fare: trees, rabbits, balloons. But one day, he draws something different: a man in a forest, dragging a woman\'s lifeless body.',
     isbn: '1250819350',
     genre: 'Thrillers',
-    series: NULL,
+    series: null,
     price: '13.00',
     quantity: '17',
     condition_new: true
@@ -143,7 +143,7 @@ const bookdata = [
     description: 'Former spy Maggie Bird came to the seaside village of Purity, Maine, eager to put the past behind her after a mission went tragically wrong. These days, she\'s living quietly on her chicken farm, still wary of blowback from the events that forced her early retirement.',
     isbn: '1662515138',
     genre: 'Thrillers',
-    series: NULL,
+    series: null,
     price: '15.00',
     quantity: '17',
     condition_new: true
@@ -155,7 +155,7 @@ const bookdata = [
     description: 'Every day I clean the Winchesters\' beautiful house top to bottom. I collect their daughter from school. And I cook a delicious meal for the whole family before heading up to eat alone in my tiny room on the top floor.',
     isbn: '1538742578',
     genre: 'Thrillers',
-    series: NULL,
+    series: null,
     price: '10.00',
     quantity: '17',
     condition_new: true
@@ -191,7 +191,7 @@ const bookdata = [
     description: 'Londoner Madeleine Grant is studying at the Sorbonne in Paris when she marries charismatic French journalist Giles Martin. As they raise their son, Olivier, they hold on to a tenuous promise for the future. Until the thunder of war sets off alarms in France.',
     isbn: '1662504233',
     genre: 'Historical',
-    series: NULL,
+    series: null,
     price: '13.00',
     quantity: '17',
     condition_new: true
@@ -227,7 +227,7 @@ const bookdata = [
     description: 'In 1922, Count Alexander Rostov is deemed an unrepentant aristocrat by a Bolshevik tribunal, and is sentenced to house arrest in the Metropol, a grand hotel across the street from the Kremlin. Rostov, an indomitable man of erudition and wit, has never worked a day in his life, and must now live in an attic room while some of the most tumultuous decades in Russian history are unfolding outside the hotel\'s doors. Unexpectedly, his reduced circumstances provide him entry into a much larger world of emotional discovery.',
     isbn: '0143110438',
     genre: 'Historical',
-    series: NULL,
+    series: null,
     price: '9.00',
     quantity: '17',
     condition_new: true

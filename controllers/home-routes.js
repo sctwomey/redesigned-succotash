@@ -131,170 +131,32 @@ router.get('/book/:id', async (req, res) => {
   }
 });
 
-router.get('/favoritebooks', async (req, res) => {
-  try {
-    const dbFavoritesData = await User.findAll({
-      include: [{
-        model: Book,
-        through: Favorite,
-      }],
-      where: {
-        id: 1
-      },
-      attributes: ['username']
-    });
+// router.get('/favoritebooks', async (req, res) => {
+//   try {
+//     const dbFavoritesData = await User.findAll({
+//       include: [{
+//         model: Book,
+//         through: Favorite,
+//       }],
+//       where: {
+//         id: 1
+//       },
+//       attributes: ['username']
+//     });
 
-    // console.log(allBooks);
-    res.json(dbFavoritesData);
+//     // console.log(allBooks);
+//     res.json(dbFavoritesData);
 
-    // res.render('book', allBooks);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     // res.render('book', allBooks);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-router.get('/wishlistbooks', async (req, res) => {
-  try {
-    const dbWishlistData = await User.findAll({
-      include: [{
-        model: Book,
-        through: Wishlist,
-      }],
-      where: {
-        id: 2
-      },
-      attributes: ['username']
-    });
 
-    // console.log(allBooks);
-    res.json(dbWishlistData);
 
-    // res.render('book', allBooks);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
-router.get('/purchasebooks', async (req, res) => {
-  try {
-    const dbPurchaseData = await User.findAll({
-      include: [{
-        model: Book,
-        through: Purchase,
-      }],
-      where: {
-        id: 3
-      },
-      attributes: ['username']
-    });
-
-    // console.log(allBooks);
-    res.json(dbPurchaseData);
-
-    // res.render('book', allBooks);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-router.post('/addfavorite', async (req, res) => {
-  try {
-    const favoriteData = await Favorite.create({
-      user_id: req.body.user_id,
-      book_id: req.body.book_id
-    });
-    res.status(200).json(favoriteData)
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.post('/addwishlist', async (req, res) => {
-  try {
-    const wishlistData = await Wishlist.create({
-      user_id: req.body.user_id,
-      book_id: req.body.book_id
-    });
-    res.status(200).json(wishlistData)
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.post('/addpurchase', async (req, res) => {
-  try {
-    const purchaseData = await Purchase.create({
-      user_id: req.body.user_id,
-      book_id: req.body.book_id
-    });
-    res.status(200).json(purchaseData)
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.delete('/removefavorite/:id', async (req, res) => {
-  try {
-    const favoriteData = await Favorite.destroy({
-      where: {
-        id: req.params.id,
-        // user_id: req.session.user_id,
-      },
-    });
-
-    if (!favoriteData) {
-      res.status(404).json({ message: 'No Favorites item found with this id!' });
-      return;
-    };
-
-    res.status(200).json(favoriteData);
-  } catch (err) {
-    res.status(500).json(err);
-  };
-});
-
-router.delete('/removewishlist/:id', async (req, res) => {
-  try {
-    const wishlistData = await Wishlist.destroy({
-      where: {
-        id: req.params.id,
-        // user_id: req.session.user_id,
-      },
-    });
-
-    if (!wishlistData) {
-      res.status(404).json({ message: 'No Wishlist item found with this id!' });
-      return;
-    };
-
-    res.status(200).json(wishlistData);
-  } catch (err) {
-    res.status(500).json(err);
-  };
-});
-
-router.delete('/removepurchase/:id', async (req, res) => {
-  try {
-    const purchaseData = await Purchase.destroy({
-      where: {
-        id: req.params.id,
-        // user_id: req.session.user_id,
-      },
-    });
-
-    if (!purchaseData) {
-      res.status(404).json({ message: 'No Purchase item found with this id!' });
-      return;
-    };
-
-    res.status(200).json(purchaseData);
-  } catch (err) {
-    res.status(500).json(err);
-  };
-});
 
 
 // GET one book
