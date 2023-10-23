@@ -316,6 +316,11 @@ main {
   font-weight: 700;
 }
 
+#loginForm > h2{
+  align-self: center;
+  font-weight: 700;
+}
+
 #loginForm > button {
   margin-top: 0.5rem;
 }
