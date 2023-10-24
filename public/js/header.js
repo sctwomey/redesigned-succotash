@@ -39,18 +39,18 @@ function doSearch(value) {
             //show the results in a drop down that can be clicked
             console.log(res)
 
-            // remove any books in product-row
-            document.querySelector('.product-row').innerHTML = ''
+            // remove any books in search-result-container
+            document.querySelector('.search-result-container').innerHTML = ''
 
             const renderCards = res.map(makeBookCard)
             const cardsAsHtmlString = renderCards.join('');
 
-            //inject the cards in the dom in product-row
-            document.querySelector('.product-row').innerHTML = cardsAsHtmlString
+            //inject the cards in the dom in search-result-container
+            document.querySelector('.search-result-container').innerHTML = cardsAsHtmlString
 
             registerAddToCartClickListener()
 
-            hideHomePageDeck()
+            // hideHomePageDeck()
 
         })
         .catch(error => console.error(error))
@@ -62,7 +62,7 @@ function hideHomePageDeck() {
 
 function makeBookCard( /** @type {Book} */ book) {
     return `
-    <div class="product-card">
+    <div class="product-card w-100">
         <h4>${book.title}</h4>
         <p><a href="/author/${book.author}">${book.author}</a></p>
         $${book.price}
