@@ -220,12 +220,19 @@ main {
 
 .relatedCard {
   align-self: center;
-  flex-wrap: wrap;
-  width: 80%;
+  flex-wrap: nowrap;
+  width: 60vw;
   height: 20vh;
-  background-color: black;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  background-color: rgba(0, 0, 0, 0.089);
+  /* margin-top: 1vh;
+  margin-bottom: 1vh; */
+  border:1px solid #333;
+  margin: .2rem;
+  background-color: #ffffff77;
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  
 }
 
 .review {
@@ -248,22 +255,26 @@ main {
 }
 
 .cardDeckSearch {
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  flex-direction: column;
   width: 80vw;
-  height: 25vh;
+  height: 80vh;
   justify-content: space-evenly;
   background-color: #ffffff4b;
   backdrop-filter: blur(0.5rem);
   font-weight: 500;
   margin: 1rem;
   align-self: center;
+  /* overflow-x: scroll; */
+  overflow-y: scroll;
+  position: fixed;
+  top: 10vh;
+  
 }
 
-.cardDeckSearch > button {
-  padding: 0.5rem;
-  background-color: #ffffff77;
-}
+
+
+
 
 .bookCard {
   height: 20vh;
@@ -276,11 +287,12 @@ main {
 
 .cardDeck {
   display: flex;
-  flex-direction: row;
-  height: 25vh;
+  flex-direction: column;
+  height: 45vh;
   justify-content: space-evenly;
-  flex: 1 1 80%;
+  flex: 0 1 80%;
   align-content: center;
+  
 }
 
 .filtersContainer {
@@ -367,9 +379,7 @@ main {
   flex-direction: column;
 }
 
-.loginInput > input {
-  /* margin:.2rem; */
-}
+
 #signupForm input[type="submit"]{
   max-width: 100px;
 }

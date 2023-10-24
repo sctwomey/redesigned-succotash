@@ -2,35 +2,35 @@
            <div class="body">
 
             <div class="cardDeckSearch">
-                <button id="booksBack"><i class="arrowLeft"></i></button>
-                <div class="cardDeck">
-                    {{#each bookHomepage.book as |book|}}
-                    {{#if (genre=fantasy)}}
+                
+                {{!-- <div class="cardDeck"> --}}
+                    {{#each bookHomePage as |book|}}
+                    
                     {{> bookMiniCard}}
-                    {{/if}}
+                   
+                    {{/each}}
+                {{!-- </div> --}}
+              
+            {{!-- </div> --}}
+
+             {{!-- <div class="cardDeckSearch">
+               
+                <div class="cardDeck">
+                    {{#each bookHomePage as |book|}}
+                    {{> bookMiniCard}}
                     {{/each}}
                 </div>
-                <button id="booksNext"><i class="arrowRight"></i></button>
+              
             </div>
 
              <div class="cardDeckSearch">
-                <button id="booksBack"><i class="arrowLeft"></i></button>
+                
                 <div class="cardDeck">
-                    {{#each book.matches as |book|}}
+                    {{#each bookHomePage as |book|}}
                     {{> bookMiniCard}}
                     {{/each}}
-                </div>
-                <button id="booksNext"><i class="arrowRight"></i></button>
-            </div>
-
-             <div class="cardDeckSearch">
-                <button id="booksBack"><i class="arrowLeft"></i></button>
-                <div class="cardDeck">
-                    {{#each book.matches as |book|}}
-                    {{> bookMiniCard}}
-                    {{/each}}
-                </div>
-                <button id="booksNext"><i class="arrowRight"></i></button>
+                </div> --}}
+                
             </div>
 
     </main>

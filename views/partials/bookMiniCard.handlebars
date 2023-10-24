@@ -1,6 +1,25 @@
 <div class="relatedCard">
-  <div class="cardImg" src="{{book.image}}" alt=""></div>
-  <div class="cardName">{{book.title}}</div>
-  <div class="price">{{book.price}}</div>
-  <button><a href="/book/{{id}}"></a>more info</button>
+  <div class="img">
+    <div class="cardImg" src="/images/{{image}}" alt=""></div>
+  </div>
+  <div class="details">
+    
+    
+    <div class="price">${{price}}</div>
+    
+
+    <div class="cardName">Publisher: {{publisher}}</div>
+    <div class="cardName">Genre: {{genre}}</div>
+
+    <div class="cardName">Stock: {{quantity}}</div>
+  </div>
+  <div class="description">
+    <div class="cardName">{{title}}</div>
+    Author:<a href=""> {{author}}</a>
+    {{#if series}}
+      <div class="cardName">Series: {{series}}</div>
+      {{/if}}
+    <div class="cardName">Description: {{description}}</div>
+  </div>
+
 </div>
