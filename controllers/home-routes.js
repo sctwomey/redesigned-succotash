@@ -8,19 +8,20 @@ const withAuth = require("../utils/auth");
 router.get('/', async (req, res) => {
   try {
     const dbBookDataHomePage = Book.findAll({
-      
-       
-        attributes: ['id','author','publisher', 'genre','title','series','quantity', 'price', 'description','image']
-        
+
+
+      attributes: ['id', 'author', 'publisher', 'genre', 'title', 'series', 'quantity', 'price', 'description', 'image']
+
     })
 
     const bookHomePage = (await dbBookDataHomePage).map((book) =>
-     book.get({plain: true})
-       );
-console.log(bookHomePage)
-    res.render('homepage', {bookHomePage,
-      loggedIn: req.session.user_id,
-          });
+    book.get({ plain: true })
+    );
+    console.log(bookHomePage)
+    res.render('homepage', {
+      bookHomePage,
+      loggedIn: req.session.user_id
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -39,7 +40,8 @@ router.get('/author', async (req, res) => {
 
     console.log(authors);
 
-    res.render('author',{loggedIn: req.session.user_id
+    res.render('author', {
+      loggedIn: req.session.user_id
     });
   } catch (err) {
     console.log(err);
