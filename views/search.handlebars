@@ -1,16 +1,18 @@
-   <main>
-        <aside class="filtersContainer">
+<main class='display-flex flex-column w-100'>
 
-            <div class="filters show">
-            <input type="text" id="genreSearch" placeholder="place holder for Genre">
-            <input type="text" id="authorSearch" placeholder="place holder for Author">
-            <input type="text" id="priceSearch" placeholder="place holder for Price">
-            <input type="text" id="seriesSearch" placeholder="place holder for series">
-            </div>
-            <button> <i id="menuToggle" class="arrowLeft"></i></button>
-        </aside>
 
-        <div class="body">
+    <div class="display-flex flex-column col-12 " style="gap:16px">
+
+        <div id="searchContainer" class=" mt-5">
+            <input type="text" name="Search" id="searchinput" placeholder="Search" />
+            <button onclick="performSearch()" id="searchbtn">search</button>
+        </div>
+
+        <div class="search-result-container display-grid grid-cols-3" style="gap:12px">
+
+        </div>
+
+        <div class="related-container hide">
 
             <div id="searchMain" class="cardDeckSearch">
                 <button id="booksBack"><i class="arrowLeft"></i></button>
@@ -22,25 +24,27 @@
                 <button id="booksNext"><i class="arrowRight"></i></button>
             </div>
 
-             <div id="relatedGenre" class="cardDeckSearch">
+            <div id="relatedGenre" class="cardDeckSearch">
                 <button id="booksBack"><i class="arrowLeft"></i></button>
                 <div class="cardDeck">
-                     {{#each book.matches as |book|}}
+                    {{#each book.matches as |book|}}
                     {{> bookMiniCard}}
                     {{/each}}
                 </div>
                 <button id="booksNext"><i class="arrowRight"></i></button>
             </div>
 
-             <div id="relatedAuthor" class="cardDeckSearch">
+            <div id="relatedAuthor" class="cardDeckSearch">
                 <button id="booksBack"><i class="arrowLeft"></i></button>
                 <div class="cardDeck">
-                     {{#each book.matches as |book|}}
+                    {{#each book.matches as |book|}}
                     {{> bookMiniCard}}
                     {{/each}}
                 </div>
                 <button id="booksNext"><i class="arrowRight"></i></button>
             </div>
 
-    </main>
+        </div>
+    </div>
 
+</main>

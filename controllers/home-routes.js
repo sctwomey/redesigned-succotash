@@ -224,4 +224,8 @@ router.get('/signup', (req, res) => {
   res.render('book');
 });
 
+router.get('/search', (req, res) => {
+  res.render('search')
+})
+
 module.exports = router;
