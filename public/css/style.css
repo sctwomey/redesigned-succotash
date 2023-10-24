@@ -411,7 +411,7 @@ main {
 
 .regInput {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   /* align-items: baseline; */
   gap: .2rem;
   margin: .2rem;
@@ -555,6 +555,12 @@ main {
   box-shadow: 0 2px 5px 1px #333;
   background-color: #99999977;
   color: white;
+}
+
+#logo{
+  font-size: 2rem;
+  font-weight: 500;
+  margin-left: 1rem;
 }
 
 #checkoutForm {
