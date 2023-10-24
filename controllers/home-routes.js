@@ -7,7 +7,20 @@ const withAuth = require("../utils/auth");
 // GET default homepage
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage');
+    const dbBookDataHomePage = Book.findAll({
+      include: [
+        {
+        model: Book,
+        attributes: ['title', 'genre', 'price', 'image']
+        }
+      ]
+    })
+
+    const bookHomePage = (await dbBookDataHomePage).map((book) =>
+     book.get({plain: true})
+       );
+
+    res.render('homepage', {bookHomePage});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
