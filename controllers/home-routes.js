@@ -5,22 +5,24 @@ const withAuth = require("../utils/auth");
 
 
 // GET default homepage
-router.get('/', async (req, res) => {
+router.get('/home', async (req, res) => {
   try {
     const dbBookDataHomePage = Book.findAll({
-      
-       
-        attributes: ['id','author','publisher', 'genre','title','series','quantity', 'price', 'description','image']
-        
+
+
+      attributes: ['id', 'author', 'publisher', 'genre', 'title', 'series', 'quantity', 'price', 'description', 'image']
+
     })
 
     const bookHomePage = (await dbBookDataHomePage).map((book) =>
+
      book.get({plain: true})
        );
 console.log(bookHomePage)
     res.render('homepage', {bookHomePage,
       loggedIn: req.session.user_id
     });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
