@@ -19,8 +19,8 @@ router.get('/', async (req, res) => {
        );
 console.log(bookHomePage)
     res.render('homepage', {bookHomePage,
-      loggedIn: req.session.user_id
-    });
+      loggedIn: req.session.user_id,
+          });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -61,76 +61,6 @@ router.get('/cart', withAuth, async (req, res) => {
 });
 
 
-
-
-// GET one book
-// Use the custom middleware before allowing the user to access the book
-// router.get('/book/:id', withAuth, async (req, res) => {
-//   try {
-//     const dbBookData = await Book.findByPk(req.params.id);
-
-//     const book = dbBookData.get({ plain: true });
-//     res.render('book', { book, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
-
-// router.get('/author/:id', async (req, res) => {
-//   try {
-//     // const dbAuthorData = await Author.findByPk(req.params.id);
-
-//     // const author = dbAuthorData.get({ plain: true });
-//     res.render('author', { loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// })
-
-// GET all books by an author
-// Use the custom middleware before allowing the user to access the book
-// router.get('/book/:author', withAuth, async (req, res) => {
-//   try {
-//     const dbAuthorData = await Book.findAll(req.params.author);
-
-//     const bookAuthor = dbAuthorData.get({ plain: true });
-//     res.render('author', { bookAuthor, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
-// GET all books by genre
-// Use the custom middleware before allowing the user to access the book
-// router.get('/book/:genre', withAuth, async (req, res) => {
-//   try {
-//     const dbGenreData = await Book.findAll(req.params.genre);
-
-//     const bookGenre = dbGenreData.get({ plain: true });
-//     res.render('genre', { bookGenre, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
-// GET all books in a series
-// Use the custom middleware before allowing the user to access the book
-// router.get('/book/:series', withAuth, async (req, res) => {
-//   try {
-//     const dbSeriesData = await Book.findAll(req.params.series);
-
-//     const bookSeries = dbSeriesData.get({ plain: true });
-//     res.render('series', { bookSeries, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 
 router.get('/author/:author', async (req, res) => {
