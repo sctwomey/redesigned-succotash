@@ -4,8 +4,10 @@
             <div class="cardDeckSearch">
                 <button id="booksBack"><i class="arrowLeft"></i></button>
                 <div class="cardDeck">
-                    {{#each book.matches as |book|}}
+                    {{#each bookHomepage.book as |book|}}
+                    {{#if (genre=fantasy)}}
                     {{> bookMiniCard}}
+                    {{/if}}
                     {{/each}}
                 </div>
                 <button id="booksNext"><i class="arrowRight"></i></button>
