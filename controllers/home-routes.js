@@ -5,7 +5,7 @@ const withAuth = require("../utils/auth");
 
 
 // GET default homepage
-router.get('/', async (req, res) => {
+router.get('/home', async (req, res) => {
   try {
     const dbBookDataHomePage = Book.findAll({
 
