@@ -3,14 +3,14 @@ const loginFormHandler = async (event) => {
 
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
-  console.log(email, password)
+
   if (email && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+    console.log('email: ' + email, 'password: ' + password);
     let data = await response.json();
     console.log(data)
     if (response.ok) {
@@ -21,12 +21,12 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const signupFormHandler = async (event) => {
+const registerFormHandler = async (event) => {
   event.preventDefault();
 
-  const username = document.querySelector('#username-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
+  const username = document.querySelector('#registerUserName').value.trim();
+  const email = document.querySelector('#registerEmail').value.trim();
+  const password = document.querySelector('#registerPassword').value.trim();
 
   if (username && email && password) {
     const response = await fetch('/api/users', {
@@ -43,10 +43,10 @@ const signupFormHandler = async (event) => {
   }
 };
 
-document.querySelector('#loginForm').addEventListener('submit', loginFormHandler);
-
-  /*
 document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
-*/
+  .querySelector('#loginForm')
+  .addEventListener('submit', loginFormHandler);
+
+document
+  .querySelector('#registerForm')
+  .addEventListener('submit', registerFormHandler);
