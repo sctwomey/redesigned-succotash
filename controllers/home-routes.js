@@ -44,25 +44,7 @@ router.get('/author', async (req, res) => {
   }
 });
 
-// GET all books.
-router.get('/book', withAuth, async (req, res) => {
-  try {
-    const dbBooksData = await Book.findAll();
-    const allBooks = dbBooksData.map((genre) =>
-      genre.get({ plain: true })
-    );
 
-    console.log(allBooks);
-
-    res.render('book', {
-      allBooks,
-      loggedIn: req.session.user_id
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 router.get('/cart', withAuth, async (req, res) => {
   try {
@@ -75,74 +57,8 @@ router.get('/cart', withAuth, async (req, res) => {
   }
 });
 
-// GET all books by genre.
-router.get('/genre', async (req, res) => {
-  try {
-    const dbGenreData = await Book.findAll({
-      attributes: ['title', 'genre']
-    });
-    const genres = dbGenreData.map((genre) =>
-      genre.get({ plain: true })
-    );
 
-    console.log(genres);
 
-    res.render('genre');
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// GET all books by series.
-router.get('/series', async (req, res) => {
-  try {
-    const dbSeriesData = await Book.findAll({
-      attributes: ['title', 'series']
-    });
-    const bookSeries = dbSeriesData.map((series) =>
-      series.get({ plain: true })
-    );
-
-    console.log(bookSeries);
-
-    res.render('series');
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-router.get('/userHome', async (req, res) => {
-  try {
-    res.render('userHome');
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// GET a specific book by id.
-router.get('/book/:id',  async (req, res) => {
-  try {
-    const dbBookData = await Book.findByPk(req.params.id, {
-      
-       
-      attributes: ['id','author','publisher', 'genre','title','series','quantity', 'price', 'description','image']
-      
-  })
-    const book = dbBookData.get({ plain: true });
-
-    res.render('book', {
-      book,
-      loggedIn: req.session.user_id
-    });
-
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 // GET one book
 // Use the custom middleware before allowing the user to access the book
