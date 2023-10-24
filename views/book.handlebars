@@ -5,14 +5,14 @@
         <div class="card">
 
             <div class="divAsideL">
-                <div class="img">{{book_img}}</div>
+                <div class="img">{{book.img}}</div>
                 <div class="divAsideL">
-                    <div class="img">{{Book_img}}</div>
+                    <div class="img">{{Book.img}}</div>
 
                     <button class="author">{{book.author}}</button>
                     <button class="Publisher">{{book.publisher}}</button>
                     <button class="Genre">{{book.genre}}</button>
-                    {{!-- <button class="addToCart">{{Add To Cart}}</button> --}}
+                    <button class="addToCart">{{cart.add}}</button>
                     <button class="Favorite">{{Favorite}}</button>
 
                 </div>
@@ -36,12 +36,9 @@
 
             </div>
 
-            <div class="review">
-                <div class="reviewPosts">{{book_reviews}}</div>
-                <input type="text" name="postAReview" id="reviewPost" placeholder="Write a Review" />
-            </div>
+            
 
-        </div>
+       
         <div class="related">
 
             <div class="relatedHeader">Related Books</div>
