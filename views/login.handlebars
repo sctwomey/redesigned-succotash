@@ -1,47 +1,29 @@
 <main class="loginReg">
 
+    <form action="login" id="loginForm">
+<p>Login</p>
+    <div class="loginInput">
+        <label for="loginEmail">Email</label>
+      <input type="text" placeholder="Email" id="loginEmail">
+      <label for="loginPassword">Password</label>
+      <input type="text" placeholder="Password" id="loginPassword">
+    </div>
+    <button><a href="/api/login">Login</a></button>
+  </form>
+
   <form action="register" id="registerForm" ction="/api/users" method="POST">
-    <p>register</p>
+    <p>Register</p>
     <div class="regInput">
+         <label for="registerUserName">username</label>
       <input type="text" placeholder="User Name" id="registerUserName">
+       <label for="registerEmail">Email</label>
       <input type="text" placeholder="Email" id="registerEmail">
+       <label for="registerPassword">Password</label>
       <input type="text" placeholder="Password" id="registerPassword">
+       <label for="registerPasswordConfirm">Confirm Password</label>
       <input type="text" placeholder="Confirm Password" id="registerPasswordConfirm">
     </div>
-    <button>Submit</button>
+    <button><a href="/api/register">Register</a></button>
   </form>
   </div>
 </main>
-
-<div id="homeLoginForm">
-  <form action="login" id="loginForm">
-
-    <h2>Welcome,</h2>
-
-
-    <p> Please log in to continue</p>
-    <div class="loginInput">
-      <input type="text" placeholder="Email" id="loginEmail">
-      <input type="text" placeholder="Password" id="loginPassword">
-    </div>
-    <button>Submit</button>
-  </form>
-</div>
-
-<label for="">firstname</label>
-<input type="text" name="first_name">
-<label for="">lastname</label>
-<input type="text" name="last_name">
-<label for="">email</label>
-<input type="text" name="email">
-<label for="">password</label>
-<input type="text" name="password">
-<label for="">address</label>
-<input type="text" name="address">
-<label for="">city</label>
-<input type="text" name="city">
-<label for="">zipcode</label>
-<input type="text" name="zip">
-<label for="">state</label>
-<input type="text" name="state">
-<input type="submit" value="Sign Up">

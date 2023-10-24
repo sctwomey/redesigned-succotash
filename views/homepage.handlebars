@@ -1,26 +1,34 @@
-<div id="homeLoginForm">
-    <form action="login" id="loginForm">
+<main>
+           <div class="body">
 
-        <h2>Welcome,</h2>
+            <div class="cardDeckSearch">
+                <button id="booksBack"><i class="arrowLeft"></i></button>
+                <div class="cardDeck">
+                    {{#each book.matches as |book|}}
+                    {{> bookMiniCard}}
+                    {{/each}}
+                </div>
+                <button id="booksNext"><i class="arrowRight"></i></button>
+            </div>
 
+             <div class="cardDeckSearch">
+                <button id="booksBack"><i class="arrowLeft"></i></button>
+                <div class="cardDeck">
+                    {{#each book.matches as |book|}}
+                    {{> bookMiniCard}}
+                    {{/each}}
+                </div>
+                <button id="booksNext"><i class="arrowRight"></i></button>
+            </div>
 
-        <p> Please log in to continue</p>
-        <div class="loginInput">
-            <input type="text" placeholder="Email" id="loginEmail">
-            <input type="text" placeholder="Password" id="loginPassword">
-        </div>
+             <div class="cardDeckSearch">
+                <button id="booksBack"><i class="arrowLeft"></i></button>
+                <div class="cardDeck">
+                    {{#each book.matches as |book|}}
+                    {{> bookMiniCard}}
+                    {{/each}}
+                </div>
+                <button id="booksNext"><i class="arrowRight"></i></button>
+            </div>
 
-        <input type="submit" value="Login" id="Loginbtn" />
-
-    </form>
-</div>
-
-<div id="homepageDeck">
-    <button id="booksBack"><i class="arrowLeft"></i></button>
-    <div class="cardDeck">
-        {{#each book.matches as |book|}}
-        {{> bookMiniCard}}
-        {{/each}}
-    </div>
-    <button id="booksNext"><i class="arrowRight"></i></button>
-</div>
+    </main>
