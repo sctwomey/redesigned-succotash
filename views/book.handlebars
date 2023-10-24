@@ -4,10 +4,8 @@
 
         <div class="card">
 
-            <div class="divAsideL">
-                <div class="img">{{book.img}}</div>
                 <div class="divAsideL">
-                    <div class="img">{{Book.img}}</div>
+                    <div class="cardImg" src="/images/{{book.image}}" alt=""></div>
 
                     <button class="author">{{book.author}}</button>
                     <button class="Publisher">{{book.publisher}}</button>
@@ -34,22 +32,11 @@
                 </div>
 
 
-            </div>
+       
 
             
 
        
-        <div class="related">
-
-            <div class="relatedHeader">Related Books</div>
-
-            <div class="relatedSearch">
-
-                {{#each book.related as |book|}}
-                {{> bookMiniCard}}
-                {{/each}}
-
-            </div>
-        </div>
+      
 
 </main>

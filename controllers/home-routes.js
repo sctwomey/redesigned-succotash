@@ -7,7 +7,18 @@ const withAuth = require("../utils/auth");
 // GET default homepage
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage');
+    const dbBookDataHomePage = Book.findAll({
+      
+       
+        attributes: ['id','author','publisher', 'genre','title','series','quantity', 'price', 'description','image']
+        
+    })
+
+    const bookHomePage = (await dbBookDataHomePage).map((book) =>
+     book.get({plain: true})
+       );
+console.log(bookHomePage)
+    res.render('homepage', {bookHomePage});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -112,10 +123,14 @@ router.get('/userHome', async (req, res) => {
 });
 
 // GET a specific book by id.
-router.get('/book/:id', withAuth, async (req, res) => {
+router.get('/book/:id',  async (req, res) => {
   try {
-    const dbBookData = await Book.findByPk(req.params.id);
-
+    const dbBookData = await Book.findByPk(req.params.id, {
+      
+       
+      attributes: ['id','author','publisher', 'genre','title','series','quantity', 'price', 'description','image']
+      
+  })
     const book = dbBookData.get({ plain: true });
 
     res.render('book', {
