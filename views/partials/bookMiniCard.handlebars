@@ -3,23 +3,29 @@
     <div class="cardImg" src="/images/{{image}}" alt=""></div>
   </div>
   <div class="details">
-    
-    
+
     <div class="price">${{price}}</div>
-    
-
+    <br>
     <div class="cardName">Publisher: {{publisher}}</div>
+    <br>
     <div class="cardName">Genre: {{genre}}</div>
-
+    <br>
     <div class="cardName">Stock: {{quantity}}</div>
+
   </div>
+
   <div class="description">
+
     <div class="cardName">{{title}}</div>
+    <br>
     Author:<a href=""> {{author}}</a>
+    <br>
     {{#if series}}
-      <div class="cardName">Series: {{series}}</div>
-      {{/if}}
-    <div class="cardName">Description: {{description}}</div>
+      <div class="cardSeries">Series: {{series}}</div>
+      <br>
+    {{/if}}
+    <div class="cardDescription">Description: {{description}}</div>
+
   </div>
 
 </div>
