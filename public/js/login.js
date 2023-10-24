@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
     let data = await response.json();
     console.log(data)
     if (response.ok) {
-      document.location.replace('/search');
+      document.location.replace('/cart');
     } else {
       alert('Failed to log in.');
     }
