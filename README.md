@@ -16,7 +16,7 @@ This bookstore application will allow a user to find books by various search par
 
 ## Links
 
-Deployed Application: https://murmuring-woodland-19363-54866e400ac6.herokuapp.com/
+Deployed Application: https://murmuring-woodland-19363-54866e400ac6.herokuapp.com/ <br>
 GitHub Repository: https://github.com/sctwomey/redesigned-succotash
 
 ## Technologies
