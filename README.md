@@ -35,10 +35,13 @@ GitHub Repository: https://github.com/sctwomey/redesigned-succotash
 
 ## Picture Refs
 
+<img src="public/images/website/bookstore_homepage.png" alt="Bookstore Homepage File Image" title="Bookstore Homepage File Screenshot">
+<img src="public/images/website/login_page.png" alt="Bookstore Login Page File Image" title="Bookstore Login Page File Screenshot">
+<img src="public/images/website/cart_page.png" alt="Bookstore Cart Page File Image" title="Bookstore Cart Page File Screenshot">
 
 ## Authors
-* Stephen Twomey
 * William Speakman
+* Stephen Twomey
 * Helen Nguyen
 
 ## License
