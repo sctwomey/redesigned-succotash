@@ -10,7 +10,7 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log('email: ' + email, 'password: ' + password);
+
     let data = await response.json();
     console.log(data)
     if (response.ok) {
