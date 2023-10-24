@@ -34,7 +34,7 @@ router.get('/author', async (req, res) => {
 });
 
 // GET all books.
-router.get('/book', async (req, res) => {
+router.get('/book', withAuth, async (req, res) => {
   try {
     const dbBooksData = await Book.findAll();
     const allBooks = dbBooksData.map((genre) =>
@@ -43,16 +43,21 @@ router.get('/book', async (req, res) => {
 
     console.log(allBooks);
 
-    res.render('book');
+    res.render('book', {
+      allBooks,
+      loggedIn: req.session.user_id
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/cart', async (req, res) => {
+router.get('/cart', withAuth, async (req, res) => {
   try {
-    res.render('cart');
+    res.render('cart', {
+      loggedIn: req.session.user_id
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -107,15 +112,17 @@ router.get('/userHome', async (req, res) => {
 });
 
 // GET a specific book by id.
-router.get('/book/:id', async (req, res) => {
+router.get('/book/:id', withAuth, async (req, res) => {
   try {
     const dbBookData = await Book.findByPk(req.params.id);
 
-    const books = dbBookData.get({ plain: true });
+    const book = dbBookData.get({ plain: true });
 
     res.render('book', {
-      books
+      book,
+      loggedIn: req.session.user_id
     });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -214,14 +221,21 @@ router.get('/author/:author', async (req, res) => {
 
 
 router.get('/login', (req, res) => {
-
+  if (req.session.logged_in) {
+    res.redirect('/cart');
+    return;
+  }
   res.render('login');
 });
 
 
 router.get('/signup', (req, res) => {
 
-  res.render('book');
+  res.render('login');
 });
+
+router.get('/search', (req, res) => {
+  res.render('search')
+})
 
 module.exports = router;

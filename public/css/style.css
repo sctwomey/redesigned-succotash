@@ -386,7 +386,7 @@ main {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
-  width: 31%;
+  /* width: 31%; */
   text-align: center;
 }
 
@@ -597,4 +597,15 @@ legend {
   row-gap: 4vh;
   font-size: 125%;
   padding-top: 1rem;
+}
+
+.display-grid {
+  display: grid;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3,1fr);
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(3,1fr);
 }
