@@ -159,6 +159,19 @@ main {
   flex-wrap: wrap;
   margin-bottom: 3rem;
 }
+.description {
+  width: 60%;
+  padding: .2rem;
+  
+}
+.details{
+  width: 25%;
+  padding: .2rem;
+}
+.img{
+  width: 15%;
+  padding: .2rem;
+}
 
 .divAsideR {
   display: flex;
@@ -221,19 +234,21 @@ main {
 .relatedCard {
   align-self: center;
   flex-wrap: nowrap;
-  width: 60vw;
+  width: 80vw;
   height: 20vh;
   background-color: rgba(0, 0, 0, 0.089);
   /* margin-top: 1vh;
   margin-bottom: 1vh; */
   border:1px solid #333;
-  margin: .2rem;
+  margin: .5rem;
   background-color: #ffffff77;
   flex-wrap: nowrap;
   display: flex;
   flex-direction: row;
-  
+  /* overflow-y: scroll; */
+   
 }
+
 
 .review {
   height: 18vh;
@@ -257,7 +272,7 @@ main {
 .cardDeckSearch {
   /* display: flex; */
   flex-direction: column;
-  width: 80vw;
+  width: 95%;
   height: 80vh;
   justify-content: space-evenly;
   background-color: #ffffff4b;
