@@ -2,26 +2,18 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // CREATE new user
-router.post('/', async (req, res) => {
-  console.log("i am getting data", req.body)
+router.post('/register', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      //username: req.body.username,
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
+    const userData = await User.create({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip,
-      address: req.body.address
     });
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      // req.session.user_id = 3;
 
-      res.status(200).json(dbUserData);
+      res.status(200).json(userData);
     });
   } catch (err) {
     console.log(err);
@@ -45,8 +37,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    //const validPassword = await dbUserData.checkPassword(req.body.password);
-    let validPassword = false;
+    const validPassword = dbUserData.checkPassword(req.body.password);
 
     if (req.body.password === dbUserData.password) {
       validPassword = true
