@@ -1,11 +1,19 @@
-<div class="wrapper row mt-5 p-3 px-5">
+<div class="wrapper mt-5 p-3 px-5">
 
 
-    <div id="checkout-container" class="row">
+    <div id="checkout-container">
 
-        <form id="checkoutForm" class="col-8 display-flex flex-row bg-white">
-            <h2 class="text-white w-100">Checkout</h2>
+        <form id="checkoutForm" class="display-flex bg-white">
+            <h2 class="text-black text-center w-100">Checkout</h2>
 
+            <div id="displayCart" class="col-4">
+                <div id="cartContent"></div>
+                <hr>
+                <div id="total">
+
+                </div>
+
+            </div>
             <div class="dispay-flex flex-column   w-50">
                 <legend class="">Shipping information</legend>
                 <div class="formgroup display-flex justify-space-between my-2">
@@ -34,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="display-flex flex-column w-50">
+            <div id="billing" class="display-flex flex-column w-50">
                 <legend>Billing informattion</legend>
                 <div class="formgroup display-flex justify-space-between my-2">
                     <label for="">Name on card</label>
@@ -68,14 +76,6 @@
 
         </form>
 
-        <div id="displayCart" class="col-4">
-            <div id="cartContent"></div>
-            <hr>
-            <div id="total">
-
-            </div>
-
-        </div>
     </div>
 
     <div id="checkout-success-container" style="min-height:400px" class="col-6 m-auto hide bg-white">
