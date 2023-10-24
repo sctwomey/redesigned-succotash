@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
     let data = await response.json();
     console.log(data)
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/search');
     } else {
       alert('Failed to log in.');
     }
@@ -31,7 +31,7 @@ const registerFormHandler = async (event) => {
   if (username && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ name: username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 

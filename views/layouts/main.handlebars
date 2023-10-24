@@ -22,16 +22,13 @@
 
       <div id="btnContainer" class="col-3">
 
-        {{#if logged_in}}
-        <h4>Hello, {{user.name}} </h4>
+        {{#if loggedIn}}
+        <h4>Hello, {{user_id.name}} </h4>
         <button id="cart"><a href="/cart">Cart</a></button>
-        <button class="btn" id="/logout">logout</button>
+        <button class="btn" id="logout">logout</button>
         {{else}}
-
-
-        <button id="login"><a href="/login">Register</a></button>
+        <button id="login"><a href="/login">Login/Register</a></button>
         <button><a href="/search">Search</a></button>
-
         {{/if}}
       </div>
 
@@ -39,11 +36,11 @@
 
   </header>
 
-
   <div class="content">
     {{{body}}}
   </div>
 
+  <script src="/js/logout.js"></script>
 </body>
 
 </html>

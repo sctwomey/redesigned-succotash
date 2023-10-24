@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // CREATE new user
-router.post('/register', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
       name: req.body.name,
@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = dbUserData.checkPassword(req.body.password);
+    let validPassword = dbUserData.checkPassword(req.body.password);
 
     if (req.body.password === dbUserData.password) {
       validPassword = true
