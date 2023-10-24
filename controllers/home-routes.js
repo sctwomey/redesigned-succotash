@@ -15,10 +15,14 @@ router.get('/home', async (req, res) => {
     })
 
     const bookHomePage = (await dbBookDataHomePage).map((book) =>
-      book.get({ plain: true })
-    );
-    console.log(bookHomePage)
-    res.render('homepage', { bookHomePage });
+
+     book.get({plain: true})
+       );
+console.log(bookHomePage)
+    res.render('homepage', {bookHomePage,
+      loggedIn: req.session.user_id
+    });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -37,7 +41,8 @@ router.get('/author', async (req, res) => {
 
     console.log(authors);
 
-    res.render('author');
+    res.render('author',{loggedIn: req.session.user_id
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
