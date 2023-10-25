@@ -6,45 +6,44 @@
   <link rel="stylesheet" href="/css/jass.css" />
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/script.js" defer></script>
- <script src="/js/logout.js" defer></script>
+  <script src="/js/logout.js" defer></script>
   <script src="/js/header.js" defer></script>
-<script src="/js/login.js" defer></script>
+  <script src="/js/login.js" defer></script>
 
   <title>Scribble-Prose</title>
 </head>
 
 <body class="">
   <header class="">
-    
 
-      <div id="logo" class=""><a 
-          class="" href="/" class="">Scribble-Prose</a></div>
 
-     
+    <div id="logo" class=""><a class="" href="/" class="">Scribble-Prose</a></div>
 
-      <div id="btnContainer" class="">
-        {{#if loggedIn}}
 
-        <p id="userName">hello, {{name}} </p>
 
-        {{/if}}
+    <div id="btnContainer" class="">
+      {{#if loggedIn}}
 
-        {{#unless search}}
-        <button class="headerbtn" id="headersearchbtn"><a href="/search">Search</a></button>
-        {{/unless}}
+      <p id="userName">Hello, {{name}} </p>
 
-        {{#if loggedIn}}
+      {{/if}}
 
-        {{#unless cart}}
-        <button class="headerbtn" id="cart" ><a href="/cart">Cart</a></button>
-        {{/unless}}
-        <button class="headerbtn" id="logout">Logout</button>
-        {{else}}
-        <button class="headerbtn" id="login"><a href="/login">Login/Register</a></button>
+      {{#unless search}}
+      <button class="headerbtn" id="headersearchbtn"><a href="/search">Search</a></button>
+      {{/unless}}
 
-        {{/if}}
+      {{#if loggedIn}}
 
-      </div>
+      {{#unless cart}}
+      <button class="headerbtn" id="cart"><a href="/cart">Cart</a></button>
+      {{/unless}}
+      <button class="headerbtn" id="logout">Logout</button>
+      {{else}}
+      <button class="headerbtn" id="login"><a href="/login">Login/Register</a></button>
+
+      {{/if}}
+
+    </div>
 
     </div>
 
