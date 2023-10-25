@@ -15,8 +15,7 @@ router.get('/', async (req, res) => {
     })
 
     const bookHomePage = (await dbBookDataHomePage).map((book) =>
-
-      book.get({ plain: true })
+    book.get({ plain: true })
     );
     console.log(bookHomePage)
     console.log(req.session.user_id)
@@ -26,7 +25,6 @@ router.get('/', async (req, res) => {
       loggedIn: req.session.loggedIn,
       name:req.session.name
     });
-
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
