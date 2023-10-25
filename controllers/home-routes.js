@@ -19,10 +19,12 @@ router.get('/', async (req, res) => {
       book.get({ plain: true })
     );
     console.log(bookHomePage)
+    console.log(req.session.user_id)
+    console.log(req.session.name)
     res.render('homepage', {
       bookHomePage,
       loggedIn: req.session.loggedIn,
-      userId:  req.session.user_id
+      name:req.session.name
     });
 
   } catch (err) {
@@ -44,7 +46,8 @@ router.get('/author', async (req, res) => {
     console.log(authors);
 
     res.render('author', {
-      loggedIn: req.session.user_id
+      loggedIn: req.session.user_id,
+      name:req.session.name
     });
   } catch (err) {
     console.log(err);
@@ -57,7 +60,9 @@ router.get('/author', async (req, res) => {
 router.get('/cart', withAuth, async (req, res) => {
   try {
     res.render('cart', {
-      loggedIn: req.session.user_id
+      loggedIn: req.session.user_id,
+      name:req.session.name,
+      cart: true
     });
   } catch (err) {
     console.log(err);
@@ -80,6 +85,7 @@ router.get('/author/:author', async (req, res) => {
   console.log("books", books)
 
   res.render("author", {
+    name:req.session.name,
     author: author,
     bookList: books
   })
@@ -104,7 +110,11 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/search', (req, res) => {
-  res.render('search')
+  res.render('search',{
+    loggedIn: req.session.user_id,
+    name:req.session.name,
+    search: true
+  })
 })
 
 module.exports = router;

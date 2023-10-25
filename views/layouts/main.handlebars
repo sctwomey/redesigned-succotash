@@ -1,55 +1,59 @@
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/jass.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/script.js" defer></script>
-    <script src="/js/header.js" defer></script>
-    <title>Scribble-Prose</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/jass.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js" defer></script>
+ <script src="/js/logout.js" defer></script>
+  <script src="/js/header.js" defer></script>
+<script src="/js/login.js" defer></script>
 
-  <body class="display-flex flex-column">
-    <header class="display-flex w-100">
-      <div class="row w-100">
+  <title>Scribble-Prose</title>
+</head>
 
-        <div
-          id="logo"
-          class="col-3 display-flex justify-flex-start align-center"
-        ><a
-            style="text-decoration:none"
-            class="text-dark"
-            href="/"
-            class="ml-2"
-          >Scribble-Prose</a></div>
+<body class="">
+  <header class="">
+    
 
-        <div class="col-6"></div>
+      <div id="logo" class=""><a 
+          class="" href="/" class="">Scribble-Prose</a></div>
 
-        <div id="btnContainer" class="col-3">
-          <button class="btn"><a href="/search">Search</a></button>
-          {{#if loggedIn}}
-           
-            <button class="btn" id="cart"><a href="/cart">Cart</a></button>
-            <button class="btn" id="logout">logout</button>
-          {{else}}
-            <button class="btn" id="login"><a
-                href="/login"
-              >Login/Register</a></button>
+     
 
-          {{/if}}
+      <div id="btnContainer" class="">
+        {{#if loggedIn}}
 
-        </div>
+        <p id="userName">hello, {{name}} </p>
+
+        {{/if}}
+
+        {{#unless search}}
+        <button class="headerbtn" id="headersearchbtn"><a href="/search">Search</a></button>
+        {{/unless}}
+
+        {{#if loggedIn}}
+
+        {{#unless cart}}
+        <button class="headerbtn" id="cart" ><a href="/cart">Cart</a></button>
+        {{/unless}}
+        <button class="headerbtn" id="logout">Logout</button>
+        {{else}}
+        <button class="headerbtn" id="login"><a href="/login">Login/Register</a></button>
+
+        {{/if}}
 
       </div>
 
-    </header>
-
-    <div class="content">
-      {{{body}}}
     </div>
 
-    <script src="/js/logout.js"></script>
-  </body>
+  </header>
+
+  <div class="content">
+    {{{body}}}
+  </div>
+
+</body>
 
 </html>
