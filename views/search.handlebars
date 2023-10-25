@@ -1,4 +1,3 @@
-
 <main class='display-flex flex-column w-100'>
 
 
@@ -14,39 +13,7 @@
 
         </div>
 
-        <div class="related-container hide">
 
-            <div id="searchMain" class="cardDeckSearch">
-                <button id="booksBack"><i class="arrowLeft"></i></button>
-                <div class="cardDeck">
-                    {{#each book.matches as |book|}}
-                    {{> bookMiniCard}}
-                    {{/each}}
-                </div>
-                <button id="booksNext"><i class="arrowRight"></i></button>
-            </div>
-
-            <div id="relatedGenre" class="cardDeckSearch">
-                <button id="booksBack"><i class="arrowLeft"></i></button>
-                <div class="cardDeck">
-                    {{#each book.matches as |book|}}
-                    {{> bookMiniCard}}
-                    {{/each}}
-                </div>
-                <button id="booksNext"><i class="arrowRight"></i></button>
-            </div>
-
-            <div id="relatedAuthor" class="cardDeckSearch">
-                <button id="booksBack"><i class="arrowLeft"></i></button>
-                <div class="cardDeck">
-                    {{#each book.matches as |book|}}
-                    {{> bookMiniCard}}
-                    {{/each}}
-                </div>
-                <button id="booksNext"><i class="arrowRight"></i></button>
-            </div>
-
-        </div>
     </div>
 
 </main>
