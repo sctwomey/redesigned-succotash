@@ -1,4 +1,4 @@
-# redesigned-succotash
+# Project 2: E-Commerce Bookstore
 
 ## Table of contents
 
